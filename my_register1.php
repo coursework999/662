@@ -11,7 +11,7 @@ if ($u)
 ?>
 <html>
 <head>
-    <title><?php echo $sitename ?> -- 用户注册</title>
+    <title><?php echo $sitename ?> register/title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <?php echo $http_head; ?>
     <link rel="stylesheet" href="conf/style.css" type="text/css">

@@ -10,7 +10,7 @@ session_start();
 ?>
 <html>
 <head>
-    <title><?php echo $sitename ?> -- 首页</title>
+    <title><?php echo $sitename ?> index </title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <?php echo $http_head; ?>
     <link rel="stylesheet" href="conf/style.css" type="text/css">
@@ -94,7 +94,7 @@ echo $category_num;
 $record_one_line = 3;
 $line_one_page = 4;
 $records_one_page = $record_one_line * $line_one_page;
-
+$begin = ($page-1) * $records_one_page;
 php?>
 
 
@@ -119,12 +119,13 @@ php?>
 
     echo "find   $total_num results<br>";
 
+    $db->query("select * from $goods_t where class_id = $category_num limit $begin, $records_one_page");
     $i = 0;
     $j = 0;
-    for (; $i * $record_one_line + $j < $total_num; $i++) {
+    for (; $i * $record_one_line + $j < $records_one_page; $i++) {
 
         if ($i % $record_one_line == 0) echo "<tr>";
-        for ($j = 0; $j < $record_one_line && $i * $record_one_line + $j < $total_num; $j++) {
+        for ($j = 0; $j < $record_one_line && $i * $record_one_line + $j < $records_one_page; $j++) {
             $db->next_record();
             echo "<td>"
             ?>
@@ -201,7 +202,7 @@ php?>
                 $page1 = $page - 1;
                 $page2 = $page + 1;
                 if ($page1 < 1) echo "<FONT color=#999999> first page&nbsp; last page</FONT>&nbsp;";
-                else echo "<a href='$PHP_SELF?page=1&up_id=$up_id&sf=$sf'>first page</a>&nbsp;<a href='$PHP_SELF?page=$page1&up_id=$up_id&sf=$sf'>上一页</a>&nbsp;";
+                else echo "<a href='$PHP_SELF?page=1&up_id=$up_id&sf=$sf'>first page</a>&nbsp;<a href='$PHP_SELF?page=$page1&up_id=$up_id&sf=$sf'>previous page</a>&nbsp;";
                 if ($page2 > $totalpage) echo "<FONT color=#999999>next page&nbsp; last page</FONT>&nbsp;";
                 else echo "<a href='$PHP_SELF?page=$page2&up_id=$up_id&sf=$sf'>next page</a>&nbsp;<a href='$PHP_SELF?page=$totalpage&up_id=$up_id&sf=$sf'>last page</a>&nbsp;";
                 ?>

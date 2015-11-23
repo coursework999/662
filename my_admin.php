@@ -20,6 +20,7 @@ require "conf/config.php";
 <!-- logout (temporary)-->
 <!-- submit (temporary)-->
 <!-- wait to input username & password -->
+
 <?php
 if ($submit)
 if ($a_xmxm == $ad_name && $a_pass == $ad_pass) {
@@ -36,15 +37,16 @@ $admin_name = $a_xmxm;
 if (session_is_registered("admin_name") && isset($admin_name))
 {
 ?>
+
 <table width="750" border="0" bgcolor="#eeeeee" align="center">
     <tr>
         <td align="right" style="line-height:150%"><a href="my_index.php" class="clink03">index</a>
             | <a href="my_admin.php" class="clink03">admin index</a>
-            | <a href="admin_goods" class="clink03">goods management</a>
+            | <a href="my_admin_goods" class="clink03">goods management</a>
             <!-- admin_goods.php -->
-            | <a href="admin_dingdang.php" class="clink03">order management</a>
+            | <a href="my_admin_order.php" class="clink03">order management</a>
             <!-- admin_dingdang.php -->
-            | <a href="admin_user" class="clink03">user management</a>
+            | <a href="my_admin_user" class="clink03">user management</a>
             <!-- admin_user.php -->
             <BR>
 

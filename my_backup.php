@@ -22,11 +22,11 @@ if (session_is_registered("admin_name") && isset($admin_name))
     <tr>
         <td align="right" style="line-height:150%"><a href="my_index.php" class="clink03">index</a>
             | <a href="my_admin.php" class="clink03">admin index</a>
-            | <a href="admin_goods" class="clink03">goods management</a>
+            | <a href="my_admin_goods" class="clink03">goods management</a>
             <!-- admin_goods.php -->
-            | <a href="admin_dingdan.php" class="clink03">order management</a>
+            | <a href="my_admin_order.php" class="clink03">order management</a>
             <!-- admin_dingdang.php -->
-            | <a href="admin_user" class="clink03">user management</a>
+            | <a href="my_admin_user" class="clink03">user management</a>
             <!-- admin_user.php -->
             <BR>
 

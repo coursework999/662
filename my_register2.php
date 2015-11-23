@@ -12,7 +12,7 @@ if ($user_reg_flag == 0) {
 
 <html>
 <head>
-    <title><?php echo $sitename ?> -- 用户注册</title>
+    <title><?php echo $sitename ?> register</title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <?php echo $http_head; ?>
     <link rel="stylesheet" href="conf/style.css" type="text/css">
@@ -23,6 +23,9 @@ if ($user_reg_flag == 0) {
 <table width="750" border="0" align="center">
 <tr align="center">
 <td><img src="images/ze2.gif" width="195" height="35">
+
+<!-- script code -->
+<!--
 <script language=JavaScript>
 function check() {
     if (document.formlogin.u_pass.value.length < 4 || document.formlogin.u_pass.value.length > 16) {
@@ -163,8 +166,12 @@ function checkName() {
     return true;
 }
 </script>
+-->
 </td>
 </tr>
+
+
+<!--content -->
 <tr align="center">
     <td>
         <table width="630" border="0">
@@ -186,7 +193,7 @@ function checkName() {
             </tr>
             <tr align="center">
                 <td height="18">
-                    <form name="formlogin" method="post" action="register3.php" onSubmit="return(check());">
+                    <form name="formlogin" method="post" action="my_register3.php" onSubmit="return(check());">
                         <table width="67%" border="0">
                             <tr>
                                 <td colspan="2">
@@ -301,6 +308,7 @@ function checkName() {
         </table>
     </td>
 </tr>
+
 </table>
 <br>
 </body>

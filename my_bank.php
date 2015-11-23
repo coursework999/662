@@ -7,7 +7,7 @@ include "my_chk.php";
 
 <html>
 <head>
-    <title><?php echo $sitename ?> -- 收银台</title>
+    <title><?php echo $sitename ?> -- pay for items</title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <?php echo $http_head; ?>
     <link rel="stylesheet" href="conf/style.css" type="text/css">

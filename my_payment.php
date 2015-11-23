@@ -6,7 +6,7 @@ include "chk.php";
 
 
 <head>
-    <title><?php echo $sitename ?> -- 购物完成</title>
+    <title><?php echo $sitename ?> -- payment finished</title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <?php echo $http_head; ?>
     <link rel="stylesheet" href="conf/style.css" type="text/css">
@@ -110,10 +110,12 @@ if ($basket_items == 0) {
 //把用户的订单的送货信息添加到requests表中
                 $a = split(',', $province);
                 $province = $a[1];
+                print "insert into $requests_t values(null,$login_id,'$name',$sex,'$email','$province','$city','$tel','$address','$post','$attrib',$price_all,0,0,0,'$date_tmp')";
                 $db2->query("insert into $requests_t
            values(null,$login_id,'$name',$sex,'$email','$province','$city','$tel',
-               '$address','$post','$attrib',$price_all,$pay,0,0,'$date_tmp')");
+               '$address','$post','$attrib',$price_all,0,0,0,'$date_tmp')");
                 $key_requests = $db2->insert_id();
+                print "<p>$key_requests";
 //得到此次的订单号
 
                 $db->query("select id from $shopping_t where user_id=$login_id and requests_id=0");
