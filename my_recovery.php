@@ -143,22 +143,25 @@ if ($_POST['action'] == "sqltable") {
 
 }
 if ($_POST['action'] == "sqlrecovery") {
-    echo "test";
+//    echo "test";
     $str_sql = "mysql -h mysql1.cs.clemson.edu -u zhubo -password=zhubo b2c_4w83 < $filename";
-    echo $str_sql;
-    //$str_sql = "insert into $goods_t
-     	          // values (123123,1111,1111,'name','defsf','',3423,3,1,'2015-3-3')";
-    //$db->query($str_sql);
-/*
-    $filehandle = fopen($filename, "w");
-    $result = $DB_site->query("SHOW tables");
-    while ($currow = $DB_site->fetch_array($result)) {
-        sqldumptable($currow[0], $filehandle);
-        fwrite($filehandle, "\n\n\n");
-        echo "<p>Exporting $currow[0]</p>";
+    echo $str_sql . '<br>';
+//    //$str_sql = "insert into $goods_t
+//     	          // values (123123,1111,1111,'name','defsf','',3423,3,1,'2015-3-3')";
+//    $db->query($str_sql);
+
+    $sql_contents = file_get_contents($filename);
+    $sql_contents = explode(";", $sql_contents);
+
+    foreach ($sql_contents as $query) {
+        if(trim($query) == "") continue;
+
+        $result = mysql_query($query);
+        if (!$result)
+            echo "Error on import of " . $query;
+        echo "end query <br>";
     }
-    fclose($filehandle);
-*/
+
     echo "<p>Database Recovery Success!</p>";
 
 }
@@ -178,13 +181,13 @@ if ($action == "choose") {
 
 <P><b>Recover Database according Backup SQL file:</b></p>
 
+
 <?php
     doformheader("my_recovery", "sqlrecovery");
     maketableheader("Recover database from selected file:");
     makefilecode("Path and filename", "filename", 0, 60);
 
     doformfooter("Save files");
-
 }
 
 cpfooter();
