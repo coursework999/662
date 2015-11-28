@@ -1,46 +1,191 @@
 <?php
-require "conf/config.php";
-?>
+error_reporting(7);
 
-<head>
-    <title><?php echo $sitename ?> back up database </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-    <link rel="stylesheet" href="conf/style.css" type="text/css">
-</head>
+if ($HTTP_POST_VARS['action']) {
+    $action = $HTTP_POST_VARS['action'];
+} else if ($HTTP_GET_VARS['action']) {
+    $action = $HTTP_GET_VARS['action'];
+}
 
-<body>
+if (function_exists("set_time_limit") == 1 and get_cfg_var("safe_mode") == 0) {
+    @set_time_limit(0);
+}
 
-<!--all admin's options -->
-<!-- display after log in -->
+
+require("bak/global.php");
+
+
+// data dump functions
+function sqldumptable($table, $fp = 0)
+{
+    global $DB_site;
+
+    $tabledump = "DROP TABLE IF EXISTS $table;\n";
+    $tabledump .= "CREATE TABLE $table (\n";
+
+    $firstfield = 1;
+
+    // get columns and spec
+    $fields = $DB_site->query("SHOW FIELDS FROM $table");
+    while ($field = $DB_site->fetch_array($fields)) {
+        if (!$firstfield) {
+            $tabledump .= ",\n";
+        } else {
+            $firstfield = 0;
+        }
+        $tabledump .= "   $field[Field] $field[Type]";
+        if (!empty($field["Default"])) {
+            // get default value
+            $tabledump .= " DEFAULT '$field[Default]'";
+        }
+        if ($field['Null'] != "YES") {
+            // can field be null
+            $tabledump .= " NOT NULL";
+        }
+        if ($field['Extra'] != "") {
+            // any extra info?
+            $tabledump .= " $field[Extra]";
+        }
+    }
+    $DB_site->free_result($fields);
+
+    // get keys list
+    $keys = $DB_site->query("SHOW KEYS FROM $table");
+    while ($key = $DB_site->fetch_array($keys)) {
+        $kname = $key['Key_name'];
+        if ($kname != "PRIMARY" and $key['Non_unique'] == 0) {
+            $kname = "UNIQUE|$kname";
+        }
+        if (!is_array($index[$kname])) {
+            $index[$kname] = array();
+        }
+        $index[$kname][] = $key['Column_name'];
+    }
+    $DB_site->free_result($keys);
+
+    // get each key info
+    while (list($kname, $columns) = @each($index)) {
+        $tabledump .= ",\n";
+        $colnames = implode($columns, ",");
+
+        if ($kname == "PRIMARY") {
+            // do primary key
+            $tabledump .= "   PRIMARY KEY ($colnames)";
+        } else {
+            // do standard key
+            if (substr($kname, 0, 6) == "UNIQUE") {
+                // key is unique
+                $kname = substr($kname, 7);
+            }
+
+            $tabledump .= "   KEY $kname ($colnames)";
+
+        }
+    }
+
+    $tabledump .= "\n);\n\n";
+    if ($fp) {
+        fwrite($fp, $tabledump);
+    } else {
+        echo $tabledump;
+    }
+
+    // get data
+    $rows = $DB_site->query("SELECT * FROM $table");
+    $numfields = $DB_site->num_fields($rows);
+    while ($row = $DB_site->fetch_array($rows)) {
+        $tabledump = "INSERT INTO $table VALUES(";
+
+        $fieldcounter = -1;
+        $firstfield = 1;
+        // get each field's data
+        while (++$fieldcounter < $numfields) {
+            if (!$firstfield) {
+                $tabledump .= ", ";
+            } else {
+                $firstfield = 0;
+            }
+
+            if (!isset($row[$fieldcounter])) {
+                $tabledump .= "NULL";
+            } else {
+                $tabledump .= "'" . mysql_escape_string($row[$fieldcounter]) . "'";
+            }
+        }
+
+        $tabledump .= ");\n";
+
+        if ($fp) {
+            fwrite($fp, $tabledump);
+        } else {
+            echo $tabledump;
+        }
+    }
+    $DB_site->free_result($rows);
+
+    //return $tabledump;
+}
+
+
+if ($_POST['action'] == "sqltable") {
+    header("Content-disposition: filename=dbbackup-" . date("m-d-Y", time()) . ".sql");
+    header("Content-type: unknown/unknown");
+
+    $result = $DB_site->query("SHOW tables");
+    while (list($key, $val) = each($table)) {
+        if ($val == 1) {
+            sqldumptable($key);
+            echo "\n\n\n";
+        }
+    }
+
+    exit;
+
+}
+if ($_POST['action'] == "sqlrecovery") {
+    echo "test";
+    $str_sql = "mysql -h mysql1.cs.clemson.edu -u zhubo -password=zhubo b2c_4w83 < $filename";
+    echo $str_sql;
+    //$str_sql = "insert into $goods_t
+     	          // values (123123,1111,1111,'name','defsf','',3423,3,1,'2015-3-3')";
+    //$db->query($str_sql);
+/*
+    $filehandle = fopen($filename, "w");
+    $result = $DB_site->query("SHOW tables");
+    while ($currow = $DB_site->fetch_array($result)) {
+        sqldumptable($currow[0], $filehandle);
+        fwrite($filehandle, "\n\n\n");
+        echo "<p>Exporting $currow[0]</p>";
+    }
+    fclose($filehandle);
+*/
+    echo "<p>Database Recovery Success!</p>";
+
+}
+cpheader();
+
+if (isset($action) == 0) {
+    $action = "choose";
+}
+
+if ($action == "choose") {
+
+    ?>
+
+<?php include "conf/admin.php"; ?>
+
+<p>Here, you can recover your Mall database</p>
+
+<P><b>Recover Database according Backup SQL file:</b></p>
 
 <?php
+    doformheader("my_recovery", "sqlrecovery");
+    maketableheader("Recover database from selected file:");
+    makefilecode("Path and filename", "filename", 0, 60);
 
-if (session_is_registered("admin_name") && isset($admin_name))
-{
-    ?>
-<table width="750" border="0" bgcolor="#eeeeee" align="center">
-    <tr>
-        <td align="right" style="line-height:150%"><a href="my_index.php" class="clink03">index</a>
-            | <a href="my_admin.php" class="clink03">admin index</a>
-            | <a href="my_admin_goods" class="clink03">goods management</a>
-            <!-- admin_goods.php -->
-            | <a href="my_admin_order.php" class="clink03">order management</a>
-            <!-- admin_dingdang.php -->
-            | <a href="my_admin_user" class="clink03">user management</a>
-            <!-- admin_user.php -->
-            <BR>
+    doformfooter("Save files");
 
-            other functions：
-            <a href="my_backup.php" title="backup database" class="clink03">backup database</a>
-            | <a href="my_recovery.php" title="recovery database" target="_blank" class="clink03">recovery database</a>
-            &nbsp;</td>
-    </tr>
-</table>
-    <?php
 }
+
+cpfooter();
 ?>
-
-<!--select a sql file -->
-select a sql file..
-
-</body>

@@ -8,22 +8,22 @@ function mtime()
 function timer($testName)
 {
   global $t0;
-  echo $testName." 所需时间为 ";
+  echo $testName." Time Need ";
   echo mtime() - $t0;
-  echo " 毫秒<br>\n";
+  echo " milliseconds<br>\n";
 }
 
 $t0 = mtime();
 require "conf/config.php";
 include "admin_check.php";
 
-timer("建立数据库连接");
+timer("Establish Database Connection");
 
 $t0 = mtime();
 $db->query("select * from $goods_t limit 10");
 
 while($db->next_record());
-timer("查询10条简单记录");
+timer("Query 10 simple data");
 
-echo "<br>可以按 F5 刷新，重新测试<br>"
+echo "<br>Press F5 to refresh, test again<br>"
 ?>

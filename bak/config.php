@@ -1,5 +1,5 @@
 <?php
-require("conf/options.php");  //引入购物程序中的数据库配置文件
+require("conf/options.php");  //database configuration files
 /////////////////////////////////////////////////////////////
 // Please note that if you get any errors when connecting, //
 // that you will need to email your host as we cannot tell //
@@ -21,7 +21,7 @@ $dbpassword=$dbuserpass;
 $dbname=$dbname;
 
 // technical email address - any error messages will be emailed here
-$technicalemail='webmaster@lan-easy.com';
+$technicalemail='zhugexubin@163.com';
 
 // use persistant connections to the database
 // 0 = don't use

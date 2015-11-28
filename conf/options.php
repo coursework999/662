@@ -27,7 +27,7 @@ $user_reg_flag = 1;
  //基本设置
 $sitename="zhubo's store";   //网站名称
 $siteurl="http://localhost/662";   //网站网址 
-$sitecopyright = "海风习习";          //网站版权人
+$sitecopyright = "Zhubo";          //网站版权人
 
 //base_set_end
 

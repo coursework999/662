@@ -216,6 +216,24 @@ function makeinputcode($title, $name, $value = "", $htmlise = 1, $size = 35)
     echo "<tr class='" . getrowbg() . "' valign='top'>\n<td><p>$title</p></td>\n<td><p><input type=\"text\" size=\"$size\" name=\"$name\" value=\"$value\"></p></td>\n</tr>\n";
 }
 
+// ###################### Start makefilecode #######################
+function makefilecode($title, $name, $htmlise = 1, $size = 35)
+{
+// makes code for an imput box: first column contains $title
+// second column contains an input box of name, $name and value, $value. $value is "HTMLised"
+
+    if ($htmlise) {
+        $value = htmlspecialchars($value);
+    }
+
+    echo "<tr class='" . getrowbg() . "' valign='top'>\n<td><p>$title</p>
+    </td>\n<td><p>
+    <input type=\"file\" size=\"$size\" name=\"$name\"  maxlength=\"40\">
+    </p></td>\n</tr>\n";
+}
+
+
+
 // ###################### Start makelabelcode #######################
 function makelabelcode($title, $value = "&nbsp;")
 {
@@ -266,8 +284,8 @@ function makeyesnocode($title, $name, $value = 1)
 {
 // Makes code for input buttons yes\no similar to makeinputcode
     echo "<tr class='" . getrowbg() . "' valign='top'>\n
-        <td><p>$title</p></td>\n<td><p>是<input type='radio' name='$name' value='1' "
-        . iif($value == 1 or ($name == 'pmpopup' and $value == 2), "checked", "") . "> 否 <input type='radio' name='$name' value='0' "
+        <td><p>$title</p></td>\n<td><p>Yes<input type='radio' name='$name' value='1' "
+        . iif($value == 1 or ($name == 'pmpopup' and $value == 2), "checked", "") . "> No <input type='radio' name='$name' value='0' "
         . iif($value == 0, "checked", "") . ">"
         . iif($value == 2 and $name == 'customtitle', " User Set (no html)<input type='radio' name='$name' value='2' checked>", "")
         . "</p></td>\n</tr>";
@@ -291,7 +309,9 @@ function doformheader($phpscript, $action, $uploadform = 0, $addtable = 1, $name
 // makes the standard form header, setting sctript to call and action to do
     global $session, $tableadded;
 
-    echo "<form action=\"$phpscript.php\" " . iif($uploadform, "ENCTYPE=\"multipart/form-data\" ", "") . " name=\"$name\" method=\"post\">\n<input type=\"hidden\" name=\"s\" value=\"$session[sessionhash]\"><input type=\"hidden\" name=\"action\" value=\"$action\">\n";
+    echo "<form action=\"$phpscript.php\" " . iif($uploadform, "ENCTYPE=\"multipart/form-data\" ", "") . " name=\"$name\" method=\"post\">\n
+    <input type=\"hidden\" name=\"s\" value=\"$session[sessionhash]\">
+    <input type=\"hidden\" name=\"action\" value=\"$action\">\n";
 
     if ($addtable == 1) {
         $tableadded = 1;
@@ -304,7 +324,7 @@ function doformheader($phpscript, $action, $uploadform = 0, $addtable = 1, $name
 
 //TODO : I think this program have not implement the backup function
 // ###################### Start doformfooter #######################
-function doformfooter($submitname = "提交", $resetname = "复位", $colspan = 2, $goback = "")
+function doformfooter($submitname = "Submit", $resetname = "Reset", $colspan = 2, $goback = "")
 {
 // closes the standard form table and makes a new one containing centred submit and reset buttons
     global $tableadded;

@@ -11,7 +11,9 @@ if ($Submit)
 if ($action=="active")
   $db->query("update $user_t set action='$f' where id=$id");
 ?>
+
 <html>
+
 <head>
 <title><?php echo $sitename ?> -- 会员管理</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
@@ -220,4 +222,5 @@ else
   <?php include "conf/footer.php"; ?>
 </p>
 </body>
+
 </html>

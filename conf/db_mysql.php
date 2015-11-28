@@ -10,10 +10,10 @@
  */ 
 class DB_Sql {
   /* public: connection parameters */
-  var $Host     = "localhost";
-  var $Database = "qwhy";   
-  var $User     = "root";   
-  var $Password = "root";   
+  var $Host     = "mysql1.cs.clemson.edu";
+  var $Database = "b2c_4w83";
+  var $User     = "zhubo";
+  var $Password = "zhubo";
   /* public: configuration parameters */
   var $Auto_Free     = 1;     ## Set to 1 for automatic mysql_free_result()
   var $Debug         = 0;     ## Set to 1 for debugging messages.
