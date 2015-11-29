@@ -10,14 +10,14 @@ session_start();
 ?>
 <html>
 <head>
-    <title><?php echo $sitename ?> index </title>
+    <title><?php echo $sitename ?> -- Homepage </title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <?php echo $http_head; ?>
     <link rel="stylesheet" href="conf/style.css" type="text/css">
 </head>
 
-<body>
-
+<body bgcolor="#FFFFFF" text="#000000">
+<?php include "conf/header.php" ?>
 
 <!-- detect the login state div-->
 <div>
@@ -227,4 +227,5 @@ php?>
     </form>
 </table>
 </td>
+<?php include "conf/footer.php"; ?>
 </body>

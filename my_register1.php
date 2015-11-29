@@ -26,7 +26,7 @@ if ($u)
                     if (document.formlogin.u.value.length<4 || document.formlogin.u.value.indexOf(' ')!=-1 || document.formlogin.u.value.indexOf("'") != -1 )
                     {
                         document.formlogin.u.focus();
-                        window.alert("请输入您的用户名，支持4-16个字符或数字，\n 请不要用除下划线外的符号或空格或 ' 符号!");
+                        window.alert("Please input your username, (4-16 characters or numbers)");
                         return false;
                     }
                 }
@@ -38,7 +38,7 @@ if ($u)
             <?php
             if ($user_reg_flag==0)
             {
-                echo "<BBR><BR>不能注册新用户 <BR><BR>对不起，系统已经关闭了新用户注册功能，如有问题请和管理员联系。";
+                echo "<BBR><BR>Cannot register new user <BR><BR>Sorry, registration has shut down, please contact administrator。";
             }
             else
             {

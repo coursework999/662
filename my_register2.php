@@ -1,11 +1,11 @@
 <?php
 require "conf/config.php";
 if ($u == "") {
-    echo "参数错误!";
+    echo "Error!";
     exit();
 }
 if ($user_reg_flag == 0) {
-    echo "不能注册新用户 <BR><BR>对不起，系统已经关闭了新用户注册功能，如有问题请和管理员联系。";
+    echo "Cannot register new user <BR><BR>Sorry, registration has shut down, please contact administrator.";
     exit();
 }
 ?>
@@ -25,23 +25,115 @@ if ($user_reg_flag == 0) {
 <td><img src="images/ze2.gif" width="195" height="35">
 
 <!-- script code -->
-<!--
+
 <script language=JavaScript>
+prvarr = new Array(51);
+ctylst = new Array(1000);
+ss = new Array(3);
+prvcnt = 31;
+prvarr[1] = new prv(1, 'Alabama');
+prvarr[2] = new prv(2, 'Alaska');
+prvarr[3] = new prv(3, 'Arizona');
+prvarr[4] = new prv(4, 'Arkansas');
+prvarr[5] = new prv(5, 'California');
+prvarr[6] = new prv(6, 'Colorado');
+prvarr[7] = new prv(7, 'Connecticut');
+prvarr[8] = new prv(8, 'Delaware');
+prvarr[9] = new prv(9, 'Florida');
+prvarr[10] = new prv(10, 'Georgia');
+prvarr[11] = new prv(11, 'Hawaii');
+prvarr[12] = new prv(12, 'Idaho');
+prvarr[13] = new prv(13, 'Illinois');
+prvarr[14] = new prv(14, 'Indiana');
+prvarr[15] = new prv(15, 'Iowa');
+prvarr[16] = new prv(16, 'Kansas');
+prvarr[17] = new prv(17, 'Kentucky');
+prvarr[18] = new prv(18, 'Louisiana');
+prvarr[19] = new prv(19, 'Maine');
+prvarr[20] = new prv(20, 'Maryland');
+prvarr[21] = new prv(21, 'Massachusetts');
+prvarr[22] = new prv(22, 'Michigan');
+prvarr[23] = new prv(23, 'Minnesota');
+prvarr[24] = new prv(24, 'Mississippi');
+prvarr[25] = new prv(25, 'Missouri');
+prvarr[26] = new prv(26, 'Montana');
+prvarr[27] = new prv(27, 'Nebraska');
+prvarr[28] = new prv(28, 'Nevada');
+prvarr[29] = new prv(29, 'New Hampshire');
+prvarr[30] = new prv(30, 'New Jersey');
+prvarr[31] = new prv(31, 'New Mexico');
+prvarr[32] = new prv(18, 'New York');
+prvarr[33] = new prv(19, 'North Carolina');
+prvarr[34] = new prv(20, 'North Dakota');
+prvarr[35] = new prv(21, 'Ohio');
+prvarr[36] = new prv(22, 'Oklahoma');
+prvarr[37] = new prv(23, 'Oregon');
+prvarr[38] = new prv(24, 'Pennsylvania');
+prvarr[39] = new prv(25, 'Rhode Island');
+prvarr[40] = new prv(26, 'South Carolina');
+prvarr[41] = new prv(27, 'South Dakota');
+prvarr[42] = new prv(28, 'Tennesse');
+prvarr[43] = new prv(29, 'Texas');
+prvarr[44] = new prv(30, 'Utah');
+prvarr[45] = new prv(31, 'Vermont');
+prvarr[46] = new prv(26, 'Virginia');
+prvarr[47] = new prv(27, 'Washington');
+prvarr[48] = new prv(28, 'West Virginia');
+prvarr[49] = new prv(29, 'Wisconsin');
+prvarr[50] = new prv(30, 'Wyoming');
+
+
+ctycnt = 181;
+function prvcty(pid, cid, name) {
+    this.pid = pid;
+    this.cid = cid;
+    this.name = name;
+}
+function prv(id, name) {
+    this.id = id;
+    this.name = name;
+}
+
+function ctychg(n, k) {
+    lth = document.formlogin.city.length
+    for (i = 0; i <= lth; i++) {
+        document.formlogin.city.remove(0);
+    }
+
+    for (j = 1; j <= ctycnt; j++) {
+
+        a = n.substring(0, n.indexOf(","));
+        if (ctylst[j].pid == a) {
+            var oOption = document.createElement("OPTION");
+
+            oOption.text = ctylst[j].name;
+            oOption.value = ctylst[j].name;
+            document.formlogin.city.add(oOption);
+            if (ctylst[j].cid == k) {
+                oOption.selected = 1;
+                cityname = ctylst[j].name;
+            }
+            oOption.empty;
+        }
+    }
+}
+
+
 function check() {
     if (document.formlogin.u_pass.value.length < 4 || document.formlogin.u_pass.value.length > 16) {
         document.formlogin.u_pass.focus();
-        window.alert("密码应为4-16位数字或字母!");
+        window.alert("Password should be 4-16 numbers or characters!");
         return false;
     }
 
     if (document.formlogin.u_pass.value != document.formlogin.u_pass2.value) {
         document.formlogin.u_pass2.focus();
-        window.alert("两次输入密码应该相同!");
+        window.alert("Two passwords do not match!");
         return false;
     }
     if (document.formlogin.email.value == "" || document.formlogin.email.value.length < 1)            //判断信箱是否为空
     {
-        alert("请输入信箱!");
+        alert("Please input email!");
         document.formlogin.email.select();
         document.formlogin.email.focus();
         return (false);
@@ -68,7 +160,7 @@ function check() {
 
     if (!allValideemail)                                                   //判断信箱中是否有非法字符
     {
-        alert("您输入的 \"电子邮件地址\" 无效,请注意Email地址的长度及是否输入了非法字符!");
+        alert("Your input \"Email Address\" is invalid, Please pay attention to the length and illegal characters!");
         document.formlogin.email.select();
         document.formlogin.email.focus();
         return (false);
@@ -78,60 +170,49 @@ function check() {
     if (eemailvalue.length > 0) {
         i = eemailvalue.indexOf("@");
         if (i == -1) {
-            window.alert("对不起!您输入的电子邮件地址是错误的,连\"@\"都没有!");
+            window.alert("Sorry, your input email is not a valid one,even without \"@\"!");
             document.formlogin.email.select();
             document.formlogin.email.focus();
             return false
         }
         ii = eemailvalue.indexOf(".")
         if (ii == -1) {
-            window.alert("对不起!您输入的电子邮件地址是错误的，连\".\"都没有!");
+            window.alert("Sorry, your input email is not a valid one,even without \".\"!");
             document.formlogin.email.select();
             document.formlogin.email.focus();
             return false
         }
     }
 
-    if (document.formlogin.email.value.indexOf('@') == -1 || document.formlogin.email.value.indexOf('@') == 0 || document.formlogin.email.value.indexOf('@') == document.formlogin.email.value.length - 1) {
-        alert("您的电子邮箱名字不对，@应放在正确的位置!");
-        document.formlogin.email.select();
-        document.formlogin.email.focus();
-        return (false);
-    }
     if (document.formlogin.name.value == "") {
         document.formlogin.name.focus();
-        window.alert("用户名不能空，并且最长20个字符!");
+        window.alert("Username cannot be empty, and at most 20 characters!");
         return false;
     }
     if (document.formlogin.sex.value == 0) {
         document.formlogin.sex.focus();
-        window.alert("请选择性别!");
+        window.alert("Please select gender!");
         return false;
     }
     if (document.formlogin.province.value == "") {
         document.formlogin.province.focus();
-        window.alert("请选择所在省份!");
+        window.alert("Please select state!");
         return false;
     }
-    /*if (document.formlogin.city.value=="")
-    {
-        document.formlogin.city.focus();
-        window.alert("请选择所在城市!");
-        return false;
-    }*/
+
     if (document.formlogin.tel.value == "") {
         document.formlogin.tel.focus();
-        window.alert("请填写联系电话!");
+        window.alert("Please input your telephone number!");
         return false;
     }
     if (document.formlogin.address.value == "") {
         document.formlogin.address.focus();
-        window.alert("请填写联系地址!");
+        window.alert("Please input your address!");
         return false;
     }
     if (document.formlogin.post.value.length < 6 || isNaN(document.formlogin.post.value)) {
         document.formlogin.post.focus();
-        window.alert("请正确填写邮编!");
+        window.alert("Post code is invalid!");
         return false;
     }
     document.formlogin.Submit.disabled = true;
@@ -156,7 +237,7 @@ function checkName() {
                     bReturn = false;
 
                 if (!bReturn) {
-                    alert('为了购物顺畅，请输入真实的姓名！');
+                    alert('Please input your reals name！');
                     return false;
                 }
 
@@ -166,7 +247,6 @@ function checkName() {
     return true;
 }
 </script>
--->
 </td>
 </tr>
 
@@ -262,11 +342,7 @@ function checkName() {
                             <tr>
                                 <td width="22%" align="right">city：</td>
                                 <td width="78%">
-                                    <select id=city name=city class="think">
-                                    </select>
-                                    <script language=javascript>
-                                        ctychg(document.formlogin.city.value, 0);
-                                    </script>
+                                    <input type="text" name="tel" class="think" maxlength="40" size="20">
                                     <font color="#CC0000">*</font></td>
                             </tr>
                             <tr>
@@ -288,7 +364,7 @@ function checkName() {
                                     <font color="#CC0000">*</font></td>
                             </tr>
                             <tr>
-                                <td width="22%" align="right">id number：</td>
+                                <td width="22%" align="right">SSN：</td>
                                 <td width="78%">
                                     <input type="text" name="paper_num" class="think" maxlength="25" size="20">
                                 </td>
