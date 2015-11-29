@@ -147,16 +147,13 @@ if ($_POST['action'] == "sqlrecovery") {
 //    echo "test";
     $str_sql = "mysql -h mysql1.cs.clemson.edu -u zhubo -password=zhubo b2c_4w83 < $filename";
     echo $str_sql . '<br>';
-//    //$str_sql = "insert into $goods_t
-//     	          // values (123123,1111,1111,'name','defsf','',3423,3,1,'2015-3-3')";
-//    $db->query($str_sql);
 
     $sql_contents = file_get_contents($filename);
     $sql_contents = explode(";", $sql_contents);
 
     foreach ($sql_contents as $query) {
+        echo "here";
         if(trim($query) == "") continue;
-
         $result = mysql_query($query);
         if (!$result)
             echo "Error on import of " . $query;
@@ -188,7 +185,7 @@ if ($action == "choose") {
     maketableheader("Recover database from selected file:");
     makefilecode("Path and filename", "filename", 0, 60);
 
-    doformfooter("Save files");
+    doformfooter("recovery");
 }
 
 cpfooter();
