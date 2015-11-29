@@ -213,7 +213,7 @@ php?>
                     function check_page(name) {
                         eval("page=" + name + ".value");
                         if (isNaN(page) || page <= 0 || page > <?php echo $totalpage ?>) {
-                            alert("请正确输入页数，最大值为 <?php echo $totalpage ?> ！");
+                            alert("Please input page num correctly，Max is <?php echo $totalpage ?> ！");
                             eval(name + ".select()");
                             return false;
                         }

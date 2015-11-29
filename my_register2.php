@@ -19,7 +19,7 @@ if ($user_reg_flag == 0) {
 </head>
 <body>
 
-
+<?php include "conf/header.php" ?>
 <table width="750" border="0" align="center">
 <tr align="center">
 <td><img src="images/ze2.gif" width="195" height="35">
@@ -120,11 +120,42 @@ function ctychg(n, k) {
 
 
 function check() {
-    if (document.formlogin.u_pass.value.length < 4 || document.formlogin.u_pass.value.length > 16) {
+    var pass = document.formlogin.u_pass.value;
+    var lowercase = 0;
+    var uppercase = 0;
+    var number = 0;
+    if(pass.length==0){
+        document.formlogin.u_pass.focus();
+        window.alert("Password cannot be null!");
+        return false;
+    } else if(pass.length < 4 || pass.length > 16) {
         document.formlogin.u_pass.focus();
         window.alert("Password should be 4-16 numbers or characters!");
         return false;
+    } else {
+        for(var i = 0; i < pass.length; i++) {
+            var asciiNumber = pass.substr(i, 1).charCodeAt();
+            if(asciiNumber >= 48 && asciiNumber <= 57) {
+                number += 1;
+            }
+            if(asciiNumber >= 65 && asciiNumber <= 90) {
+                uppercase += 1;
+            }
+
+        }
+        if(0==uppercase) {
+            document.formlogin.u_pass.focus();
+            window.alert("Password should include at least 1 Uppercase character!");
+            return false;
+        }
+        if(0==number) {
+            document.formlogin.u_pass.focus();
+            window.alert("Password should include at least 1 number!");
+            return false;
+        }
     }
+
+
 
     if (document.formlogin.u_pass.value != document.formlogin.u_pass2.value) {
         document.formlogin.u_pass2.focus();
@@ -204,7 +235,7 @@ function check() {
         document.formlogin.tel.focus();
         window.alert("Please input your telephone number!");
         return false;
-    }
+    }/*
     if (document.formlogin.address.value == "") {
         document.formlogin.address.focus();
         window.alert("Please input your address!");
@@ -214,7 +245,7 @@ function check() {
         document.formlogin.post.focus();
         window.alert("Post code is invalid!");
         return false;
-    }
+    }*/
     document.formlogin.Submit.disabled = true;
     document.formlogin.Submit2.disabled = true;
 }
@@ -286,7 +317,7 @@ function checkName() {
                                 <td width="22%" align="right"> password£º</td>
                                 <td width="78%">
                                     <input type="password" name="u_pass" class="think" maxlength="16" size="12">
-                                    <font color="#CC0000">*</font>£¨4-16 numbers and characters£©
+                                    <font color="#CC0000">*</font>£¨4-16 numbers and characters,at least one uppercase character and one number£©
                                 </td>
                             </tr>
                             <tr>
@@ -355,13 +386,13 @@ function checkName() {
                                 <td width="22%" align="right">address£º</td>
                                 <td width="78%">
                                     <input type="text" name="address" class="think" maxlength="100" size="40">
-                                    <font color="#CC0000">*</font></td>
+                                </td>
                             </tr>
                             <tr>
                                 <td width="22%" align="right">zip code£º</td>
                                 <td width="78%">
                                     <input type="text" name="post" class="think" maxlength="6" size="8">
-                                    <font color="#CC0000">*</font></td>
+                                    </td>
                             </tr>
                             <tr>
                                 <td width="22%" align="right">SSN£º</td>
@@ -387,5 +418,6 @@ function checkName() {
 
 </table>
 <br>
+<?php include "conf/footer.php"; ?>
 </body>
 </html>

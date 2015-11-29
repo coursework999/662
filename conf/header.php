@@ -2,7 +2,7 @@
   <tr> 
     <td align="right" colspan="3" bgcolor="#E1ECff"> <a href="my_index.php" >Homepage</a>
       | <a href="my_register1.php">User Registration</a> | <a href="my_login.php">Login</a> | <a href="my_modify.php">Modify Profile</a>
-      | <a href="my_logout.php">Exit</a>
+      | <a href="my_logout.php">Logout</a>
       <?php
 if ($guestbook)
   echo ' | <a href="guestbook/" target="_blank"><font color=blue>Leave Message</font></a> ';

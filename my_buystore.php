@@ -61,12 +61,13 @@ if ($op2) echo '<script language="javascript"> location.href="my_buystore.php";<
 
 <html>
 <head>
-    <title><?php echo $sitename ?> -- 收藏夹</title>
+    <title><?php echo $sitename ?> -- Favorite</title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <?php echo $http_head; ?>
     <link rel="stylesheet" href="conf/style.css" type="text/css">
 </head>
-
+<body>
+<?php include "conf/header.php" ?>
 <table width="630" border="0" cellspacing="0" cellpadding="0" align="center">
     <tr>
         <td>
@@ -88,14 +89,14 @@ if ($op2) echo '<script language="javascript"> location.href="my_buystore.php";<
                                 }
 
                                 function ClearCart() {
-                                    if (confirm('真的要清空购物车的所有商品吗？')) {
+                                    if (confirm('Sure to empty all products in the Cart？')) {
                                         document.frmbuy.action = 'my_buystore.php?op=clear';
                                         document.frmbuy.submit();
                                     }
                                 }
 
                                 function ChangeN() {
-                                    if (confirm('确定要更新商品的数量吗？')) {
+                                    if (confirm('Sure to update product number？')) {
                                         document.frmbuy.action = "my_buystore.php?op=update";
                                         document.frmbuy.submit();
                                     }
@@ -168,5 +169,6 @@ if ($op2) echo '<script language="javascript"> location.href="my_buystore.php";<
     </tr>
 </table>
 
+<?php include "conf/footer.php"; ?>
 </body>
 </html>

@@ -67,15 +67,15 @@ if ($op2) echo '<script language="javascript"> location.href="my_buycar.php";</s
 
 <html>
 <head>
-    <title><?php echo $sitename ?> -- 购物车</title>
+    <title><?php echo $sitename ?> -- Shopping Cart</title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <?php echo $http_head; ?>
     <link rel="stylesheet" href="conf/style.css" type="text/css">
 </head>
 
 <body>
-
-<div>
+<?php include "conf/header.php" ?>
+<div align="center">
 
     <p><img src="images/new_my_gwc.gif" width="172" height="30">
         <script language=javascript>
@@ -117,7 +117,7 @@ if ($op2) echo '<script language="javascript"> location.href="my_buycar.php";</s
 </div>
 
 <!--my cart-->
-<table>
+<table align="center">
     <td height="2">
         <table>
             <form name="frmbuy" method="post">
@@ -214,5 +214,6 @@ if ($op2) echo '<script language="javascript"> location.href="my_buycar.php";</s
 </table>
 
 
+<?php include "conf/footer.php"; ?>
 </body>
 </html>

@@ -5,18 +5,18 @@
 </table><BR>
 <table width="750" border="0" cellspacing="4" cellpadding="0" align="center">
 <tr align="center">
-<td><a href="index.php" class="clink03">回到页首</a> | <a href="buycar.php" class="clink03">购物车</a> | 
-<a href="buystore.php" class="clink03">收藏夹</a> | 
-<a href="bank.php" class="clink03">收银台</a> | <a href="dingdang.php" class="clink03">订单查询</a> | 
-<a href="service.php" class="clink03">客服中心</a> | <a href="contact.php"  class="clink03">联系方式</a></td>
+<td><a href="my_index.php" class="clink03">Back to homepage</a> | <a href="my_buycar.php" class="clink03">Shopping cart</a> |
+<a href="buystore.php" class="clink03">Favorite</a> |
+<a href="bank.php" class="clink03">Checkout</a> | <a href="my_dingdang.php" class="clink03">Order query</a> |
+<a href="service.php" class="clink03">Custom service</a> | <a href="my_contact.php"  class="clink03">Contact</a></td>
 </tr><tr align="center"><td>&nbsp;</td></tr><tr align="center">
-    <td style="line-height:150%">Copyright&copy;2002　版权所有　<a href="mailto:<?php echo $siteemail ?>" target=_blank class="clink03"> 
+    <td style="line-height:150%">Copyright&copy;2015 Reserved　<a href="mailto:<?php echo $siteemail ?>" target=_blank class="clink03">
       <?php echo $sitecopyright ?>
-      </a> 程序开发:<a href="mailto:wyx726@126.com" target=_blank class="clink03">北京工业大学</a> 
+      </a> Program Development:<a href="mailto:zhugexubin@163.com" target=_blank class="clink03">Clemson University</a>
       <BR>
-      地址: 
+      Address:
       <?php echo $siteadd ?>
-      　　电话: 
+      　　Tel:
       <?php echo $sitetel ?>
       <br>
       E_mail:<a href="mailto:<?php echo $siteemail ?>" class="clink03"> 

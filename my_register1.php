@@ -16,7 +16,8 @@ if ($u)
     <?php echo $http_head; ?>
     <link rel="stylesheet" href="conf/style.css" type="text/css">
 </head>
-
+<body>
+<?php include "conf/header.php" ?>
 <table width="750" border="0" align="center">
     <tr align="center">
         <td><img src="images/ze1.gif" width="195" height="35">
@@ -99,5 +100,6 @@ if ($u)
     </tr>
 </table>
 <br>
+<?php include "conf/footer.php"; ?>
 </body>
 </html>
