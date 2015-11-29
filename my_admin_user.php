@@ -168,9 +168,9 @@ if (session_is_registered("admin_name") && isset($admin_name)) {
                             <td bgcolor="#FFFFFF" align="center" width="10%">
                                 <?php
                                 if ($db->f('action') == 'y')
-                                    echo "<font color=\"blue\">activate</font>/<a href='admin_user.php?action=active&id=" . $db->f('id') . "&f=n' onclick='return open_win(\"admin_user_zt.php?id=" . $db->f('id') . "&f=n\");' class='clink03'>refuse</a>";
+                                    echo "<font color=\"blue\">activate</font>/<a href='my_admin_user.php?action=active&id=" . $db->f('id') . "&f=n'  class='clink03'>refuse</a>";
                                 else
-                                    echo "<font color=\"red\">refuse</font>/<a href='admin_user.php?action=active&id=" . $db->f('id') . "&f=y' onclick='return open_win(\"admin_user_zt.php?id=" . $db->f('id') . "&f=y\");' class='clink03'>activate</a>";
+                                    echo "<font color=\"red\">refuse</font>/<a href='my_admin_user.php?action=active&id=" . $db->f('id') . "&f=y'  class='clink03'>activate</a>";
                                 ?>
                             </td>
                             <td bgcolor="#FFFFFF" align="center" width="4%">

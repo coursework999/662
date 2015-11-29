@@ -7,11 +7,10 @@
 <tr align="center">
 <td><a href="my_index.php" class="clink03">Back to homepage</a> | <a href="my_buycar.php" class="clink03">Shopping cart</a> |
 <a href="my_buystore.php" class="clink03">Favorite</a> |
-<a href="my_bank.php" class="clink03">Checkout</a> | <a href="my_dingdang.php" class="clink03">Order query</a> | <a href="my_contact.php"  class="clink03">Contact</a></td>
+<a href="my_bank.php" class="clink03">Checkout</a> | <a href="my_dingdang.php" class="clink03">Order query</a></td>
 </tr><tr align="center"><td>&nbsp;</td></tr><tr align="center">
-    <td style="line-height:150%">Copyright&copy;2015 Reserved¡¡<a href="mailto:<?php echo $siteemail ?>" target=_blank class="clink03">
-      <?php echo $sitecopyright ?>
-      </a> Program Development:<a href="mailto:zhugexubin@163.com" target=_blank class="clink03">Clemson University</a>
+    <td style="line-height:150%">Copyright&copy;2015 Reserved by <?php echo $sitecopyright ?>
+      </a> &nbsp&nbsp&nbsp&nbsp Program Development:<a href="mailto:zhugexubin@163.com" target=_blank class="clink03">Clemson University</a>
       <BR>
       Address:
       <?php echo $siteadd ?>

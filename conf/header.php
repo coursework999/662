@@ -44,7 +44,7 @@
   $tmp1="";
   while($db->next_record())
    {
-    echo "<a href='my_index.php?up_id=".$db->f('id')."' class='title'>".$db->f('name')."</a>&nbsp;&nbsp;&nbsp;&nbsp;";
+    echo "<a href='my_index.php?category_num=".$db->f('id')."' class='title'>".$db->f('name')."</a>&nbsp;&nbsp;&nbsp;&nbsp;";
     $tmp1.="<option value=\"".$db->f('id')."\">".$db->f('name')."</option>";
 	}	
   ?>
