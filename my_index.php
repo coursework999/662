@@ -213,7 +213,7 @@ $db->query("select id,name,image,price_m,price,state
 
 
     <table width="100%" border="0" cellspacing="1" cellpadding="1">
-        <form action="<?php echo $PHP_SELF . "?up_id=$category_num" ?> " method="post" name="form8"
+        <form action="<?php echo $PHP_SELF . "?category_num=$category_num" ?> " method="post" name="form8"
               onSubmit="return check_page('form8.page')">
             <tr>
                 <td align="right"> Total:
@@ -221,9 +221,9 @@ $db->query("select id,name,image,price_m,price,state
                     $page1 = $page - 1;
                     $page2 = $page + 1;
                     if ($page1 < 1) echo "<FONT color=#999999>First Page&nbsp;Previous Page</FONT>&nbsp;";
-                    else echo "<a href='$PHP_SELF?page=1&up_id=$category_num'>First Page</a>&nbsp;<a href='$PHP_SELF?page=$page1&up_id=$category_num'>Previous Page</a>&nbsp;";
+                    else echo "<a href='$PHP_SELF?page=1&category_num=$category_num'>First Page</a>&nbsp;<a href='$PHP_SELF?page=$page1&category_num=$category_num'>Previous Page</a>&nbsp;";
                     if ($page2 > $totalpage) echo "<FONT color=#999999>Next Page&nbsp;Last page</FONT>&nbsp;";
-                    else echo "<a href='$PHP_SELF?page=$page2&up_id=$category_num'>Next Page</a>&nbsp;<a href='$PHP_SELF?page=$totalpage&up_id=$category_num'>Last Page</a>&nbsp;";
+                    else echo "<a href='$PHP_SELF?page=$page2&category_num=$category_num'>Next Page</a>&nbsp;<a href='$PHP_SELF?page=$totalpage&category_num=$category_num'>Last Page</a>&nbsp;";
                     ?>
                     Current Page:<b>
                         <?php echo $page . "/" . $totalpage ?>
