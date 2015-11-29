@@ -1,7 +1,7 @@
 <?php
 require "conf/config.php";
 //check wether you have login or not.
-include "my_chk.php";
+include "chk.php";
 ?>
 
 

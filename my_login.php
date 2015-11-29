@@ -16,7 +16,7 @@ if ($u_name) {
     if ($db->num_rows()) {
         if ($db->f('u_pass') == $u_pass) {
             if ($db->f('action') == "n")
-                $err = "Sorry£¬your account has not activated£¬Please contact <a href='mailto:$siteemail' class='title'></a>";
+                $err = "Sorry£¬your account has not activated£¬Please contact <a href='mailto:$siteemail' class='title'>Administrator</a>";
             else {
                 session_register('login_id');
                 session_register('login_name');
@@ -32,12 +32,11 @@ if ($u_name) {
             $err = "password incorrect, input your password again. <a href='my_login.php' class='title'>[login]</a>";
     } else
         $err = "username does not exist! <a href='my_login.php' class='title'>[login]</a>";
-    $err .= "<br><br><input type=\"button\" value=\"go back to index\" onClick=\"JavaScript:window.location.href='my_index.php'\" class=\"stbtm\"  name=\"button3\">";
+    $err .= "<br><br><input type=\"button\" value=\"Back\" onClick=\"JavaScript:window.location.href='my_index.php'\" class=\"stbtm\"  name=\"button3\">";
 } /*else {
     $err = "user name is empty ! <a href='my_login.php' class = 'title' >[login]</a>";
 }*/
 
-echo $err;
 ?>
 
 <html>

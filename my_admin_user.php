@@ -5,7 +5,7 @@ include "admin_check.php";
 if ($Submit) {
     $aryid = @implode(",", $delete);
     $db2->query("delete from $user_t where id in($aryid)");
-    $result = "deleteuser成功。";
+    $result = "delete user success";
 }
 if ($action == "active")
     $db->query("update $user_t set action='$f' where id=$id");
@@ -18,32 +18,14 @@ if (session_is_registered("admin_name") && isset($admin_name)) {
     ?>
 
 <head>
-    <title><?php echo $sitename ?> -- user management</title>
+    <title><?php echo $sitename ?> -- Membership management</title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <?php echo $http_head; ?>
     <link rel="stylesheet" href="conf/style.css" type="text/css">
 </head>
 
-<table width="750" border="0" bgcolor="#eeeeee" align="center">
-    <tr>
-        <td align="right" style="line-height:150%"><a href="my_index.php" class="clink03">index</a>
-            | <a href="my_admin.php" class="clink03">admin index</a>
-            | <a href="my_admin_goods" class="clink03">goods management</a>
-            <!-- admin_goods.php -->
-            | <a href="my_admin_order.php" class="clink03">order management</a>
-            <!-- admin_dingdang.php -->
-            | <a href="my_admin_user" class="clink03">user management</a>
-            <!-- admin_user.php -->
-            <BR>
-
-            other functions：
-            <a href="my_backup.php" title="backup database" class="clink03">backup database</a>
-            | <a href="my_recovery.php" title="recovery database" target="_blank" class="clink03">recovery database</a>
-            &nbsp;</td>
-    </tr>
-</table>
-
 <body bgcolor="#FFFFFF" text="#000000">
+    <?php include "conf/admin.php"; ?>
 <table width="750" border="0" align="center">
     <tr bgcolor="#EFEFEF">
         <td class="p13" align="center" height="26">user management
@@ -132,7 +114,7 @@ if (session_is_registered("admin_name") && isset($admin_name)) {
                                    onClick="CheckAll(this.form,this.checked)">
                             <font color="#CC3366">select all </font> 　
                             user management            <input type="submit" name="Submit" value="delete"
-                                   onClick="if(!confirm('确定要delete这些吗？')) return false;" class="stbtm2">
+                                   onClick="if(!confirm('are you sure to delete these？')) return false;" class="stbtm2">
                         </td>
                     </tr>
                     <tr>
@@ -209,7 +191,7 @@ if (session_is_registered("admin_name") && isset($admin_name)) {
                                    onClick="CheckAll(this.form,this.checked)">
                             <font color="#CC3366">select all </font> 　
                             <input type="submit" name="Submit" value="delete"
-                                   onClick="if(!confirm('确定要delete这些吗？')) return false;" class="stbtm2">
+                                   onClick="if(!confirm('are you sure to delete these？')) return false;" class="stbtm2">
                         </td>
                     </tr>
                 </table>

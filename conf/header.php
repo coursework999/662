@@ -2,13 +2,7 @@
   <tr> 
     <td align="right" colspan="3" bgcolor="#E1ECff"> <a href="my_index.php" >Homepage</a>
       | <a href="my_register1.php">User Registration</a> | <a href="my_login.php">Login</a> | <a href="my_modify.php">Modify Profile</a>
-      | <a href="my_logout.php">Logout</a>
-      <?php
-if ($guestbook)
-  echo ' | <a href="guestbook/" target="_blank"><font color=blue>Leave Message</font></a> ';
-if ($bbs_url)
-  echo " | <a href=\"$bbs_url\" target=\"_blank\"><font color=blue>$bbs_name</font></a> ";
-?>
+      | <a href="my_logout.php"><font color="red">Logout</font></a>
       &nbsp; </td>
   </tr>
   <tr> 
@@ -34,8 +28,8 @@ if ($bbs_url)
     <td bgcolor="#ffffff" id="clock">&nbsp; </td>
     <td align="right" bgcolor="#ffffff" colspan="2"><a href="my_buycar.php">Shopping Cart</a>
       &nbsp;&nbsp;<a href="my_buystore.php">Wish List</a>
-      &nbsp;&nbsp;<a href="bank.php">Payment</a>
-      &nbsp;&nbsp;<a href="dingdang.php">Orders</a>&nbsp;</td>
+      &nbsp;&nbsp;<a href="my_bank.php">Payment</a>
+      &nbsp;&nbsp;<a href="my_dingdang.php">Orders</a>&nbsp;</td>
   </tr>
 </table>
 <table width="750" border="1" cellpadding="3" cellspacing="1" bgcolor="#000000" bordercolor="#FFFFFF" align="center">
@@ -50,7 +44,7 @@ if ($bbs_url)
   $tmp1="";
   while($db->next_record())
    {
-    echo "<a href='index.php?up_id=".$db->f('id')."' class='title'>".$db->f('name')."</a>&nbsp;&nbsp;&nbsp;&nbsp;";
+    echo "<a href='my_index.php?up_id=".$db->f('id')."' class='title'>".$db->f('name')."</a>&nbsp;&nbsp;&nbsp;&nbsp;";
     $tmp1.="<option value=\"".$db->f('id')."\">".$db->f('name')."</option>";
 	}	
   ?>

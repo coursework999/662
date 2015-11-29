@@ -32,36 +32,7 @@ $admin_name = $a_xmxm;
 <!--all admin's options -->
 <!-- display after log in -->
 
-<?php
-
-if (session_is_registered("admin_name") && isset($admin_name))
-{
-?>
-
-<table width="750" border="0" bgcolor="#eeeeee" align="center">
-    <tr>
-        <td align="right" style="line-height:150%"><a href="my_index.php" class="clink03">index</a>
-            | <a href="my_admin.php" class="clink03">admin index</a>
-            | <a href="my_admin_goods" class="clink03">goods management</a>
-            <!-- admin_goods.php -->
-            | <a href="my_admin_order.php" class="clink03">order management</a>
-            <!-- admin_dingdang.php -->
-            | <a href="my_admin_user" class="clink03">user management</a>
-            <!-- admin_user.php -->
-            <BR>
-
-            other functions：
-             <a href="my_backup.php" title="backup database" class="clink03">backup database</a>
-            | <a href="my_recovery.php" title="recovery database" target="_blank" class="clink03">recovery database</a>
-            &nbsp;</td>
-    </tr>
-</table>
-
-<?php
-}
-?>
-
-
+<?php include "conf/admin.php"; ?>
 
 <table width="750" align="center">
 <tr align="center">
@@ -105,8 +76,6 @@ if (session_is_registered("admin_name") && isset($admin_name))
     else {
         ?>
 
-        <!-- admin login page -->
-        username or password is incorrect.
         </tr>
         <tr>
             <td align="center">
@@ -148,136 +117,6 @@ if (session_is_registered("admin_name") && isset($admin_name))
 
     </tbody>
 </table>
-
-
-<!-- outline table -->
-
-<?php
-//if (session_is_registered("admin_name") && isset($admin_name)) {
-//    ?>
-<!---->
-<!--<br>-->
-<!--    --><?php
-//    //TODO: this is the table
-//    ?>
-<!---->
-<!--<table width="500" border="0" cellpadding="2" cellspacing="1" bgcolor="#7777777">-->
-<!--    <tr>-->
-<!--        <td colspan="5" height="26" align="center"><b><font color="#FFFFFF">网站统计</font></b></td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--        <td bgcolor="#dddddd" width="25%" align="right">商品类别总数</td>-->
-<!--        <td bgcolor="#eeeeee" width="20%">-->
-<!--            --><?php
-//            $db->query("select count(*) as total from $class_t");
-//            $db->next_record();
-//            echo $db->f('total');
-//            ?>
-<!--        </td>-->
-<!--        <td bgcolor="#FFFFFF">&nbsp;</td>-->
-<!--        <td bgcolor="#dddddd" width="25%" align="center" class="p13">订单统计</td>-->
-<!--        <td bgcolor="#eeeeee" width="20%">&nbsp;</td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--        <td height="20" bgcolor="#dddddd" width="25%" align="right">商品个数</td>-->
-<!--        <td height="20" bgcolor="#eeeeee" width="20%">-->
-<!--            --><?php
-//            $db->query("select count(*) as total from $goods_t");
-//            $db->next_record();
-//            echo $db->f('total');
-//            ?>
-<!--        </td>-->
-<!--        <td height="20" bgcolor="#FFFFFF">&nbsp;</td>-->
-<!--        <td bgcolor="#dddddd" width="25%" align="right">待处理的订单管理</td>-->
-<!--        <td bgcolor="#eeeeee" width="20%">-->
-<!--            --><?php
-//            $db->query("select count(*) as total from $requests_t where (payment=0 or send_out=0) and (TO_DAYS(now())-TO_DAYS(date_created)) < $dingdang_days");
-//            $db->next_record();
-//            echo $db->f('total');
-//            ?>
-<!--        </td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--        <td height="20" bgcolor="#dddddd" width="25%" align="right">新闻条数</td>-->
-<!--        <td height="20" bgcolor="#eeeeee" width="20%">-->
-<!--            --><?php
-//            $db->query("select count(*) as total from $news_t");
-//            $db->next_record();
-//            echo $db->f('total');
-//            ?>
-<!--        </td>-->
-<!--        <td height="20" bgcolor="#FFFFFF">&nbsp;</td>-->
-<!--        <td height="20" bgcolor="#dddddd" width="25%" align="right"> 成功的订单</td>-->
-<!--        <td height="20" bgcolor="#eeeeee" width="20%">-->
-<!--            --><?php
-//            $db->query("select count(*) as total from $requests_t where (payment=1 and send_out=1)");
-//            $db->next_record();
-//            echo $db->f('total');
-//            ?>
-<!--        </td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--        <td height="20" bgcolor="#dddddd" width="25%" align="right">注册用户数</td>-->
-<!--        <td height="20" bgcolor="#eeeeee" width="20%">-->
-<!--            --><?php
-//            $db->query("select count(*) as total from $user_t");
-//            $db->next_record();
-//            echo $db->f('total');
-//            ?>
-<!--        </td>-->
-<!--        <td height="20" bgcolor="#FFFFFF">&nbsp;</td>-->
-<!--        <td height="20" bgcolor="#dddddd" width="25%" align="right">无效的订单</td>-->
-<!--        <td height="20" bgcolor="#eeeeee" width="20%">-->
-<!--            --><?php
-//            $db->query("select count(*) as total from $requests_t where (payment=0 or send_out=0) and (TO_DAYS(now())-TO_DAYS(date_created)) > $dingdang_days");
-//            $db->next_record();
-//            echo $db->f('total');
-//            ?>
-<!--        </td>-->
-<!--    </tr>-->
-<!---->
-<!--    <tr>-->
-<!--        <td height="20" bgcolor="#dddddd" width="25%" align="right">广告条数</td>-->
-<!--        <td height="20" bgcolor="#eeeeee" width="20%">-->
-<!--            --><?php
-//            $db->query("select count(*) as total from $ad_t");
-//            $db->next_record();
-//            echo $db->f('total');
-//            ?>
-<!--        </td>-->
-<!--        <td height="20" bgcolor="#FFFFFF">&nbsp;</td>-->
-<!--        <td height="20" bgcolor="#dddddd" width="25%" align="right">&nbsp;</td>-->
-<!--        <td height="20" bgcolor="#eeeeee" width="20%">&nbsp;</td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--        <td height="20" bgcolor="#dddddd" width="25%" align="right">友情链接个数</td>-->
-<!--        <td height="20" bgcolor="#eeeeee" width="20%">-->
-<!--            --><?php
-//            $db->query("select count(*) as total from $link_t");
-//            $db->next_record();
-//            echo $db->f('total');
-//            ?>
-<!--        </td>-->
-<!--        <td height="20" bgcolor="#FFFFFF">&nbsp;</td>-->
-<!--        <td height="20" bgcolor="#dddddd" width="25%" align="right">&nbsp;</td>-->
-<!--        <td height="20" bgcolor="#eeeeee" width="20%">&nbsp;</td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--        <td height="20" bgcolor="#dddddd" width="25%" align="right">调查表个数</td>-->
-<!--        <td height="20" bgcolor="#eeeeee" width="20%">-->
-<!--            --><?php
-//            $db->query("select count(*) as total from $vote_t");
-//            $db->next_record();
-//            echo $db->f('total');
-//            ?>
-<!--        </td>-->
-<!--        <td height="20" bgcolor="#FFFFFF">&nbsp;</td>-->
-<!--        <td height="20" bgcolor="#dddddd" width="25%" align="right">&nbsp;</td>-->
-<!--        <td height="20" bgcolor="#eeeeee" width="20%">&nbsp;</td>-->
-<!--    </tr>-->
-<!--</table>-->
-<!--    -->
-<?php //} ?>
 
 <br>
 </td>

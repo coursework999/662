@@ -1,5 +1,6 @@
 <?php
 error_reporting(7);
+include "admin_check.php";
 
 if ($HTTP_POST_VARS['action']) {
     $action = $HTTP_POST_VARS['action'];

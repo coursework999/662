@@ -1,5 +1,6 @@
 <?php
 require "conf/config.php";
+include "chk.php";
 session_start();
 
 switch ($op) {

@@ -7,7 +7,7 @@
 ?>
 <html>
 <head>
-<title><?php echo $sitename ?> -- 用户登录</title>
+<title><?php echo $sitename ?> -- User Login</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <?php echo $http_head; ?>
 <link rel="stylesheet" href="conf/style.css" type="text/css">
@@ -19,7 +19,7 @@
     <td> 
       <p>&nbsp;</p>
       <p>&nbsp;</p>
-      <p>您还没有登录，请先 <a href="login.php?url=<?php echo $PHP_SELF ?>" class="title">[登录]</a></p>
+      <p>You have not login, please <a href="my_login.php?url=<?php echo $PHP_SELF ?>" class="title">login</a> first!</p>
       <p>&nbsp;</p>
       <p>&nbsp;</p>
       </td>
