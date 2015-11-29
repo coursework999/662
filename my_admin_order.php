@@ -47,7 +47,7 @@ if ($do=="update")
 
 <html>
 <head>
-    <title><?php echo $sitename ?> -- 商品管理</title>
+    <title><?php echo $sitename ?> -- goods management</title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <?php echo $http_head; ?>
     <link rel="stylesheet" href="conf/style.css" type="text/css">
@@ -199,21 +199,21 @@ if ($do=="update")
                         <td align=center>
                             <?php
                             if ($db->f('send_out'))
-                                echo "<a href='$PHP_SELF?do=update&action=send_out&value=0&id=".($db->f('id')+$init_num)."' onClick=\"return confirm('确定该条订单wait for sending吗?')\" class='clink03'>"."wait for sending</a>";
+                                echo "<a href='$PHP_SELF?do=update&action=send_out&value=0&id=".($db->f('id')+$init_num)."' onClick=\"return confirm('wait for sending?')\" class='clink03'>"."wait for sending</a>";
                             else
-                                echo "<a href='$PHP_SELF?do=update&action=send_out&value=1&id=".($db->f('id')+$init_num)."' onClick=\"return confirm('确定该条订单已发货吗?')\" class='clink03'>"."sent</a>";
+                                echo "<a href='$PHP_SELF?do=update&action=send_out&value=1&id=".($db->f('id')+$init_num)."' onClick=\"return confirm('is sending?')\" class='clink03'>"."sent</a>";
                             ?>
                         </td>
                         <td align=center>
                             <?php
                             if ($db->f('payment'))
-                                echo "<a href='$PHP_SELF?do=update&action=payment&value=0&id=".($db->f('id')+$init_num)."' onClick=\"return confirm('确定该条订单wait for paying吗?')\" class='clink03'>"."wait for paying</a>";
+                                echo "<a href='$PHP_SELF?do=update&action=payment&value=0&id=".($db->f('id')+$init_num)."' onClick=\"return confirm('wait for paying?')\" class='clink03'>"."wait for paying</a>";
                             else
-                                echo "<a href='$PHP_SELF?do=update&action=payment&value=1&id=".($db->f('id')+$init_num)."' onClick=\"return confirm('确定该条订单已付款吗?')\" class='clink03'>"."paied</a>";
+                                echo "<a href='$PHP_SELF?do=update&action=payment&value=1&id=".($db->f('id')+$init_num)."' onClick=\"return confirm('this order is paied?')\" class='clink03'>"."paied</a>";
                             ?>
                         </td>
                         <td align=center>
-                            <input type="button" name="Button2" value="delete" class="think" <?php echo "onclick=\"javaScript:if (confirm('确定要delete吗?')) window.location.href='$PHP_SELF?action=del&id=".($db->f('id')+$init_num)."'\""; ?>>
+                            <input type="button" name="Button2" value="delete" class="think" <?php echo "onclick=\"javaScript:if (confirm('delete?')) window.location.href='$PHP_SELF?action=del&id=".($db->f('id')+$init_num)."'\""; ?>>
                         </td>
                     </tr>
                     <?php } ?>

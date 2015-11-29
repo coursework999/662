@@ -5,11 +5,11 @@ include "admin_check.php";
 function up_img($file,$f_type)
 {
     set_time_limit(1000);
-    if (($file == "none") || ($file == "")) //检查是否选择文件
+    if (($file == "none") || ($file == ""))
         return ;
-    if ($f_type!="image/pjpeg" && $f_type!="image/gif" && $f_type!="image/x-png") //检查上载文件type
+    if ($f_type!="image/pjpeg" && $f_type!="image/gif" && $f_type!="image/x-png")
     {
-        echo "<center>您所选择的上载文件type不对，发布操作已经中止...</center>$f_type";
+        echo "<center>type is not right...</center>$f_type";
         exit();
         return ;
     }
@@ -67,33 +67,27 @@ function up_img($file,$f_type)
 <script language="JavaScript">
     function check()
     {
-        if (document.form1.class_id.value == "")
-        {
-            alert ("请选择category!");
-            document.form1.class_id.focus();
-            return false;
-        }
         if (document.form1.name.value == "")
         {
-            alert ("请填写name!");
+            alert ("write name!");
             document.form1.name.focus();
             return false;
         }
         if (document.form1.descript.value == "")
         {
-            alert ("请填写description!");
+            alert ("write description!");
             document.form1.descript.focus();
             return false;
         }
         if (isNaN(document.form1.price_m.value) || document.form1.price_m.value <= 0)
         {
-            alert ("请正确输入商品的price!");
+            alert ("write price!");
             document.form1.price_m.focus();
             return false;
         }
         if (isNaN(document.form1.price.value) || document.form1.price.value <= 0)
         {
-            alert ("请正确输入商品的prime!");
+            alert ("write prime!");
             document.form1.price.focus();
             return false;
         }
