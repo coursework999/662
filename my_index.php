@@ -47,150 +47,150 @@ session_start();
     </form>
 </div>
 
+<table align = 'center'>
 
-<!-- category div -->
-<div>
-    <table border=1>
+    <tr>
+        <td>
+            <!-- category div -->
+            <div>
+                <table border=1>
 
-        <tr>
-            <th>Category</th>
-        </tr>
-
-
-        <?php
-        $db->query("select id,name from $class_t where up_id=0");
-        $top_category = 0;
-        //for every topmost category
-        //echo $db->num_rows();
-        while ($db->next_record()) {
-            echo "<tr><td>";
-            echo "<a href = 'my_index?category_num=" . $db->f('id') . "'>";
-            echo $db->f('name');
-            echo "</a>";
-            echo "</td></tr>";
-        }
-        ?>
-
-    </table>
-
-</div>
+                    <tr>
+                        <th>Category</th>
+                    </tr>
 
 
-<!--goods list table -->
-<div>
+                    <?php
+                    $db->query("select id,name from $class_t where up_id=0");
+                    $top_category = 0;
+                    //for every topmost category
+                    //echo $db->num_rows();
+                    while ($db->next_record()) {
+                        echo "<tr><td>";
+                        echo "<a href = 'my_index?category_num=" . $db->f('id') . "'>";
+                        echo $db->f('name');
+                        echo "</a>";
+                        echo "</td></tr>";
+                    }
+                    ?>
 
-</div>
+                </table>
 
+            </div>
 
-<?php
+        <td>
+        <td>
+        <!--goods list table -->
+        <div>
+            <?php
 //init
 
-if (!isset($page)) $page = 1;
-if (!isset($category_num)) $category_num = 51;
+            if (!isset($page)) $page = 1;
+            if (!isset($category_num)) $category_num = 88;
 
-echo $category_num;
-
-
-$record_one_line = 3;
-$line_one_page = 4;
-$records_one_page = $record_one_line * $line_one_page;
-$begin = ($page-1) * $records_one_page;
-php?>
+            echo "upid = $category_num  ";
 
 
-<table border="1">
-    <tr>
-        <th>
-            <?php
-
-            $db->query("select name from $class_t where id = $category_num");
-            $category_name = $db->f("name");
-            echo "category : $category_name";
-            ?>
-        </th>
-    </tr>
+            $record_one_line = 3;
+            $line_one_page = 4;
+            $records_one_page = $record_one_line * $line_one_page;
+            $begin = ($page - 1) * $records_one_page;
+            php?>
 
 
-    <?php
-    $db->query("select * from $goods_t where class_id = $category_num");
-    $total_num = $db->num_rows();// all records in this category
-    $totalpage = ceil($total_num / $records_one_page);//all the pages
-    $init_record = ($page - 1) * $records_one_page;
+            <table border="1">
 
-    echo "find   $total_num results<br>";
 
-    $db->query("select * from $goods_t where class_id = $category_num limit $begin, $records_one_page");
-    $i = 0;
-    $j = 0;
-    for (; $i * $record_one_line + $j < $records_one_page; $i++) {
+                <?php
+                $db->query("select * from $goods_t where up_id = $category_num");
+                $total_num = $db->num_rows();// all records in this category
+                $totalpage = ceil($total_num / $records_one_page);//all the pages
+                $init_record = ($page - 1) * $records_one_page;
 
-        if ($i % $record_one_line == 0) echo "<tr>";
-        for ($j = 0; $j < $record_one_line && $i * $record_one_line + $j < $records_one_page; $j++) {
-            $db->next_record();
-            echo "<td>"
-            ?>
-            <!-- show table of an item -->
-            <table>
+                echo "find   $total_num results<br>";
 
-                <tr>
-                    <td>
-                        <?php
-                        echo "<a href='my_goods_list.php?id=" . $db->f('id') . "' target='_blank'><img src='" . show_img($db->f('image'), 50, 50) . " border='0'></a>";
+                $db->query("select * from $goods_t where up_id = $category_num limit $begin, $records_one_page");
+                $cur_page_record = $db->num_rows();
+                $i = 0;
+                $j = 0;
+                for (; $i * $record_one_line + $j < $cur_page_record; $i++) {
+
+                    if ($i % $record_one_line == 0) echo "<tr>";
+                    for ($j = 0; $j < $record_one_line && $i * $record_one_line + $j < $cur_page_record; $j++) {
+                        $db->next_record();
+                        echo "<td>"
                         ?>
-                    </td>
+                        <!-- show table of an item -->
+                        <table>
 
-                    <td>
-                        <?php echo "<a href='my_goods_list.php?id=" . $db->f('id') . "' class='softtitle' target='_blank'>" . stripslashes($db->f('name')) . "</a>"; ?>
-                        <br>
-                        price£º
-                        <?php echo $db->f('price_m'); ?>
-                        $
-                        <br>
-                        prime£º
+                            <tr>
+                                <td>
+                                    <?php
+                                    echo "<a href='my_goods_list.php?id=" . $db->f('id') . "' target='_blank'><img src='" . show_img($db->f('image'), 50, 50) . " border='0'></a>";
+                                    ?>
+                                </td>
+
+                                <td>
+                                    <?php echo "<a href='my_goods_list.php?id=" . $db->f('id') . "' class='softtitle' target='_blank'>" . stripslashes($db->f('name')) . "</a>"; ?>
+                                    <br>
+                                    price£º
+                                    <?php echo $db->f('price_m'); ?>
+                                    $
+                                    <br>
+                                    prime£º
+                                    <?php
+                                    if ($user_price)
+                                        if (isset($login_name))
+                                            echo $db->f('price');
+                                        else
+                                            echo "";
+                                    else
+                                        echo $db->f('price');
+                                    ?>
+                                    $ <br>
+                                    count£º
+                                    <?php
+                                    if ($db->f('state') == 0) echo "many";
+                                    if ($db->f('state') == 1) echo "none";
+                                    ?>
+                                    <br>
+                                    <a href="my_shopping.php?id=<?php echo $db->f('id') ?>" target="cart"><img
+                                            src="images/gou.gif" width="60" height="22" border="0"></a>
+                                    <a href="my_shopping.php?id2=<?php echo $db->f('id') ?>" target="cart">
+                                        <img src="images/sc.gif" width="60" height="22" border="0"></a>
+                                </td>
+                            </tr>
+
+                        </table>
+
+
                         <?php
-                        if ($user_price)
-                            if (isset($login_name))
-                                echo $db->f('price');
-                            else
-                                echo "";
-                        else
-                            echo $db->f('price');
-                        ?>
-                        $ <br>
-                        count£º
-                        <?php
-                        if ($db->f('state') == 0) echo "many";
-                        if ($db->f('state') == 1) echo "none";
-                        ?>
-                        <br>
-                        <a href="my_shopping.php?id=<?php echo $db->f('id') ?>" target="cart"><img
-                                src="images/gou.gif" width="60" height="22" border="0"></a>
-                        <a href="my_shopping.php?id2=<?php echo $db->f('id') ?>" target="cart">
-                            <img src="images/sc.gif" width="60" height="22" border="0"></a>
-                    </td>
-                </tr>
+                        echo "</td>";
+                    }
+                    ?>
+
+                    <?php
+                    echo "</tr>";
+                }
+                ?>
 
             </table>
 
+        </div>
+        <td>
+        <td>
+            <!-- cart-->
+            <iframe frameborder=1
+                    height=182 name=cart scrolling=no
+                    src="shopping.php"
+                    width="100%"></iframe>
 
-            <?php
-            echo "</td>";
-        }
-        ?>
-
-        <?php
-        echo "</tr>";
-    }
-    ?>
-
+        </td>
+    </tr>
 </table>
 
 
-<!-- cart-->
-<iframe frameborder=1
-        height=182 name=cart scrolling=no
-        src="shopping.php"
-        width="100%"></iframe>
+
 
 <!-- show using multiple pages-->
 <table width="100%" border="0" cellspacing="1" cellpadding="1">
@@ -202,9 +202,9 @@ php?>
                 $page1 = $page - 1;
                 $page2 = $page + 1;
                 if ($page1 < 1) echo "<FONT color=#999999> first page&nbsp; last page</FONT>&nbsp;";
-                else echo "<a href='$PHP_SELF?page=1&up_id=$up_id&sf=$sf'>first page</a>&nbsp;<a href='$PHP_SELF?page=$page1&up_id=$up_id&sf=$sf'>previous page</a>&nbsp;";
+                else echo "<a href='$PHP_SELF?page=1&category_num=$category_num&sf=$sf'>first page</a>&nbsp;<a href='$PHP_SELF?page=$page1&category_num=$category_num&sf=$sf'>previous page</a>&nbsp;";
                 if ($page2 > $totalpage) echo "<FONT color=#999999>next page&nbsp; last page</FONT>&nbsp;";
-                else echo "<a href='$PHP_SELF?page=$page2&up_id=$up_id&sf=$sf'>next page</a>&nbsp;<a href='$PHP_SELF?page=$totalpage&up_id=$up_id&sf=$sf'>last page</a>&nbsp;";
+                else echo "<a href='$PHP_SELF?page=$page2&category_num=$category_num&sf=$sf'>next page</a>&nbsp;<a href='$PHP_SELF?page=$totalpage&category_num=$category_num&sf=$sf'>last page</a>&nbsp;";
                 ?>
                 current page:<b>
                     <?php echo $page . "/" . $totalpage ?>
