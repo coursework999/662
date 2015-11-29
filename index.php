@@ -432,3 +432,130 @@ require("link.php");
 <?php include "conf/footer.php"; ?>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table align = 'center'>
+
+
+    <!--goods list table -->
+    <div>
+        <?php
+//init
+
+        if (!isset($page)) $page = 1;
+        if (!isset($category_num)) $category_num = 88;
+
+        echo "upid = $category_num  ";
+
+
+        $record_one_line = 3;
+        $line_one_page = 4;
+        $records_one_page = $record_one_line * $line_one_page;
+        $begin = ($page - 1) * $records_one_page;
+        php?>
+
+
+        <table border="1">
+
+
+            <?php
+            $db->query("select * from $goods_t where up_id = $category_num");
+            $total_num = $db->num_rows();// all records in this category
+            $totalpage = ceil($total_num / $records_one_page);//all the pages
+            $init_record = ($page - 1) * $records_one_page;
+
+            echo "find   $total_num results<br>";
+
+            $db->query("select * from $goods_t where up_id = $category_num limit $begin, $records_one_page");
+            $cur_page_record = $db->num_rows();
+            $i = 0;
+            $j = 0;
+            for (; $i * $record_one_line + $j < $cur_page_record; $i++) {
+
+                if ($i % $record_one_line == 0) echo "<tr>";
+                for ($j = 0; $j < $record_one_line && $i * $record_one_line + $j < $cur_page_record; $j++) {
+                    $db->next_record();
+                    echo "<td>"
+                    ?>
+                    <!-- show table of an item -->
+                    <table>
+
+                        <tr>
+                            <td>
+                                <?php
+                                echo "<a href='my_goods_list.php?id=" . $db->f('id') . "' target='_blank'><img src='" . show_img($db->f('image'), 50, 50) . " border='0'></a>";
+                                ?>
+                            </td>
+
+                            <td>
+                                <?php echo "<a href='my_goods_list.php?id=" . $db->f('id') . "' class='softtitle' target='_blank'>" . stripslashes($db->f('name')) . "</a>"; ?>
+                                <br>
+                                price£º
+                                <?php echo $db->f('price_m'); ?>
+                                $
+                                <br>
+                                prime£º
+                                <?php
+                                if ($user_price)
+                                    if (isset($login_name))
+                                        echo $db->f('price');
+                                    else
+                                        echo "";
+                                else
+                                    echo $db->f('price');
+                                ?>
+                                $ <br>
+                                count£º
+                                <?php
+                                if ($db->f('state') == 0) echo "many";
+                                if ($db->f('state') == 1) echo "none";
+                                ?>
+                                <br>
+                                <a href="my_shopping.php?id=<?php echo $db->f('id') ?>" target="cart"><img
+                                        src="images/gou.gif" width="60" height="22" border="0"></a>
+                                <a href="my_shopping.php?id2=<?php echo $db->f('id') ?>" target="cart">
+                                    <img src="images/sc.gif" width="60" height="22" border="0"></a>
+                            </td>
+                        </tr>
+
+                    </table>
+
+
+                    <?php
+                    echo "</td>";
+                }
+                ?>
+
+                <?php
+                echo "</tr>";
+            }
+            ?>
+
+        </table>
+
+    </div>
+    <td>
+    <td>
+        <!-- cart-->
+        <iframe frameborder=1
+                height=182 name=cart scrolling=no
+                src="shopping.php"
+                width="100%"></iframe>
+
+    </td>
+    </tr>
+</table>
+
