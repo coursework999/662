@@ -86,9 +86,9 @@ session_start();
 //init
 
 if (!isset($page)) $page = 1;
-if (!isset($category_num)) $category_num = 51;
+if (!isset($category_num)) $category_num = 88;
 
-echo $category_num;
+echo "upid = $category_num  ";
 
 
 $record_one_line = 3;
@@ -99,33 +99,24 @@ php?>
 
 
 <table border="1">
-    <tr>
-        <th>
-            <?php
-
-            $db->query("select name from $class_t where id = $category_num");
-            $category_name = $db->f("name");
-            echo "category : $category_name";
-            ?>
-        </th>
-    </tr>
 
 
     <?php
-    $db->query("select * from $goods_t where class_id = $category_num");
+    $db->query("select * from $goods_t where up_id = $category_num");
     $total_num = $db->num_rows();// all records in this category
     $totalpage = ceil($total_num / $records_one_page);//all the pages
     $init_record = ($page - 1) * $records_one_page;
 
     echo "find   $total_num results<br>";
 
-    $db->query("select * from $goods_t where class_id = $category_num limit $begin, $records_one_page");
+    $db->query("select * from $goods_t where up_id = $category_num limit $begin, $records_one_page");
+    $cur_page_record = $db->num_rows();
     $i = 0;
     $j = 0;
-    for (; $i * $record_one_line + $j < $records_one_page; $i++) {
+    for (; $i * $record_one_line + $j < $cur_page_record; $i++) {
 
         if ($i % $record_one_line == 0) echo "<tr>";
-        for ($j = 0; $j < $record_one_line && $i * $record_one_line + $j < $records_one_page; $j++) {
+        for ($j = 0; $j < $record_one_line && $i * $record_one_line + $j < $cur_page_record; $j++) {
             $db->next_record();
             echo "<td>"
             ?>
@@ -202,9 +193,9 @@ php?>
                 $page1 = $page - 1;
                 $page2 = $page + 1;
                 if ($page1 < 1) echo "<FONT color=#999999> first page&nbsp; last page</FONT>&nbsp;";
-                else echo "<a href='$PHP_SELF?page=1&up_id=$up_id&sf=$sf'>first page</a>&nbsp;<a href='$PHP_SELF?page=$page1&up_id=$up_id&sf=$sf'>previous page</a>&nbsp;";
+                else echo "<a href='$PHP_SELF?page=1&category_num=$category_num&sf=$sf'>first page</a>&nbsp;<a href='$PHP_SELF?page=$page1&category_num=$category_num&sf=$sf'>previous page</a>&nbsp;";
                 if ($page2 > $totalpage) echo "<FONT color=#999999>next page&nbsp; last page</FONT>&nbsp;";
-                else echo "<a href='$PHP_SELF?page=$page2&up_id=$up_id&sf=$sf'>next page</a>&nbsp;<a href='$PHP_SELF?page=$totalpage&up_id=$up_id&sf=$sf'>last page</a>&nbsp;";
+                else echo "<a href='$PHP_SELF?page=$page2&category_num=$category_num&sf=$sf'>next page</a>&nbsp;<a href='$PHP_SELF?page=$totalpage&category_num=$category_num&sf=$sf'>last page</a>&nbsp;";
                 ?>
                 current page:<b>
                     <?php echo $page . "/" . $totalpage ?>
