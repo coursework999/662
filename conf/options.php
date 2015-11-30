@@ -1,4 +1,8 @@
 <?php
+
+include('register_globals.php');
+register_globals();
+
 //db_set_start 
  //Êý¾Ý¿âÉèÖÃ
 $dbservername="mysql1.cs.clemson.edu";
