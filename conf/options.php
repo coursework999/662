@@ -2,7 +2,7 @@
 
 include('conf/register_globals.php');
 register_globals();
-
+error_reporting(0);
 //db_set_start 
  //Êı¾İ¿âÉèÖÃ
 $dbservername="mysql1.cs.clemson.edu";
