@@ -1,6 +1,6 @@
 <?php
 
-include('register_globals.php');
+include('conf/register_globals.php');
 register_globals();
 
 //db_set_start 
