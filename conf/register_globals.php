@@ -52,3 +52,4 @@ function unregister_globals() {
         }
     }
 }
+?>
