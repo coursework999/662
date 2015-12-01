@@ -45,7 +45,7 @@ session_start();
                                         <tr>
                                             <td bgcolor=#ffffff valign=top><iframe frameborder=0
                                                                                    height=182 name=cart scrolling=no
-                                                                                   src="shopping.php"
+                                                                                   src="my_shopping.php"
                                                                                    width="100%"></iframe></td>
                                         </tr>
                                         </tbody>
@@ -102,8 +102,8 @@ session_start();
                         if ($db->f('state')==1)  echo "Out of stock";
                         ?>
                     </font><br>
-                    <a href="shopping.php?id=<?php echo $db->f('id') ?>" target="cart"><img src="images/gou.gif" width="60" height="22" border="0"></a>
-                    <a href="shopping.php?id2=<?php echo $db->f('id') ?>" target="cart">
+                    <a href="my_shopping.php?id=<?php echo $db->f('id') ?>" target="cart"><img src="images/gou.gif" width="60" height="22" border="0"></a>
+                    <a href="my_shopping.php?id2=<?php echo $db->f('id') ?>" target="cart">
                         <img src="images/sc.gif" width="60" height="22" border="0"></a> <br>
                 </td>
             </tr>

@@ -104,7 +104,7 @@ require("link.php");
                 $db->query("select id,name from $class_t where up_id=0");
 
             while ($db->next_record()) {
-                echo "<a href='my_index?category_num=".$db->f('id')."'><b><font color=\"#333399\">[ </font></b><font color=\"#FF3333\">" . $db->f("name") . "</font><font color=\"#333399\"><b> ]</b></font></a><BR>\n";
+                echo "<a href='my_index.php?category_num=".$db->f('id')."'><b><font color=\"#333399\">[ </font></b><font color=\"#FF3333\">" . $db->f("name") . "</font><font color=\"#333399\"><b> ]</b></font></a><BR>\n";
                 echo "<table id=\"menu$h\" style=\"display:none\" width=\"98%\" border=\"0\" cellspacing=\"3\" cellpadding=\"0\"><tr align=\"center\">\n";
                 echo "</tr></table>";
 
