@@ -18,10 +18,13 @@ if ($u_name) {
             if ($db->f('action') == "n")
                 $err = "Sorry£¬your account has not activated£¬Please contact <a href='mailto:$siteemail' class='title'>Administrator</a>";
             else {
-                session_register('login_id');
-                session_register('login_name');
-                $login_id = $db->f('id');
-                $login_name = $u_name;
+                $_SESSION['login_id'] = $db->f('id');
+                $_SESSION['login_name'] = $u_name;
+                //session_register('login_id');
+                //session_register('login_name');
+                //$login_id = $db->f('id');
+                //$login_name = $u_name;
+
                 setcookie("cookielogintime", $date_tmp, time() + 7200, "/");
                 $db->query("update $user_t set last_date='$date_tmp',times=times+1
             where u_name='$u_name'");

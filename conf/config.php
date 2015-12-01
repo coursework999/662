@@ -2,11 +2,6 @@
 require "conf/options.php";
 require "conf/db_mysql.php";
 
-//以下内容为搜索的内容
-$http_head = '<meta name="description" content="凯程商务网，商务程序出售，程序设计，网站制作，linux服务器管理与，成都，电脑，IT，在线装机推荐，电脑技术。">
-<meta NAME="Keywords" CONTENT="凯程商务网，王友兴，海风习习，wyx726@126.com，10196648，电子商务，程序设计，web，internet，西域，西部，西域数字，westd，硬件，电脑,配件,PC,price,价格,新闻，IT，装机，成都，四川，东华，软件，超频，搜索引擎">
-<META NAME="robots" CONTENT="none">
-<META name="Author" content="luzjoy@163.com,wyx726@126.com">';
 
 //付款方式设置 商店设置
 
@@ -38,6 +33,7 @@ if ($register_globals != 1) {
     @extract($_GET, EXTR_SKIP);
     @extract($_ENV, EXTR_SKIP);
 
+
     //This is for image submit
     foreach ($HTTP_POST_FILES as $key => $val) {
         $$key = $val['tmp_name'];
@@ -61,8 +57,8 @@ $db2->Password = $dbuserpass;
 
 
 //测试数据库连接
-$db->Link_ID = @mysql_connect($db->Host, $db->User, $db->Password) or die("数据库连接错误，请运行install.php进行安装。");
-@mysql_select_db($db->Database, $db->Link_ID) or die("数据库不存在，请运行install.php进行安装。");
+$db->Link_ID = @mysql_connect($db->Host, $db->User, $db->Password) or die("Database connection failed1");
+@mysql_select_db($db->Database, $db->Link_ID) or die("Database does not exist!");
 
 //------------自定义函数部分--------------
 //------------把图片进行比例缩小------------
@@ -120,7 +116,7 @@ function match_show($msg, $title, $key, $link)
             echo $res[0] . "<BR><br>";
         }
     } else {
-        echo "请输入关键词";
+        echo "input keywords";
         exit;
     }
 }
