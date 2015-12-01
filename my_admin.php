@@ -24,8 +24,9 @@ require "conf/config.php";
 <?php
 if ($submit)
 if ($a_xmxm == $ad_name && $a_pass == $ad_pass) {
-session_register('admin_name');
-$admin_name = $a_xmxm;
+    $_SESSION['admin_name'] = $a_xmxm;
+//session_register('admin_name');
+    //$admin_name = $a_xmxm;
 }
 ?>
 

@@ -20,6 +20,3 @@
       E_mail:<a href="mailto:<?php echo $siteemail ?>" class="clink03"> 
       <?php echo $siteemail ?>
       </a></td></tr></table>
-<?php
-if ($stat) echo "<script language=\"JavaScript\" src=\"stat/include/countjs.php?style=$stat_type\"></script>\n";
-?>
