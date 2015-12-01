@@ -1,5 +1,6 @@
 <?php
 session_start();
+require ("conf/config.php");
 
 //para id2 represent like
 //para id represent cart
