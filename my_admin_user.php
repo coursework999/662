@@ -28,7 +28,7 @@ if (session_is_registered("admin_name") && isset($admin_name)) {
     <?php include "conf/admin.php"; ?>
 <table width="750" border="0" align="center">
     <tr bgcolor="#EFEFEF">
-        <td class="p13" align="center" height="26">user management
+        <td class="p13" align="center" height="26">Membership Management
             <script language="JavaScript">
                 function open_win(htmlurl) {
                     var newwin = window.open(htmlurl, "<?php echo $sitename ?>", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=400,height=450");
@@ -39,7 +39,7 @@ if (session_is_registered("admin_name") && isset($admin_name)) {
     </tr>
     <form name="form1" method="post">
         <tr bgcolor="#EFEFEF">
-            <td align="center" bgcolor="#EFEFEF"> search by username or id:
+            <td align="center" bgcolor="#EFEFEF"> search by username or real name:
                 <input type="text" name="key" size="15" class="think">
                 <input type="submit" name="submit1" value="search" class="stbtm2">
             </td>

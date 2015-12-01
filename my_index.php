@@ -122,11 +122,11 @@ require("link.php");
 
     echo "Dear <font color='#cc0000'>" . $login_name . "</font>£¬Hello!Welcome!";
 } else
-    echo "Dear customer£¬hello!welcome! <a href='login.php' class='clink03'>[Login]</a> ";
+    echo "Dear customer£¬hello!welcome! <a href='my_login.php' class='clink03'>[Login]</a> ";
 echo "&nbsp&nbsp&nbsp Last login£º" . $cookielogintime;
 
-
-$tmp = "where up_id=$category_num";
+    if ($category_num)
+        $tmp = "where up_id=$category_num";
 
 
 if (!$page) $page = 1;
@@ -311,7 +311,21 @@ $db->query("select id,name,image,price_m,price,state
                         </td>
                     </tr>
                     <tr>
-                        <?php showLinks(); ?>
+                        <tr bgcolor='#ffffff'><td height=40 align=center>
+                        <a href="http://www.ebay.com" class="title" target=_blank>Ebay</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <tr bgcolor='#ffffff'><td height=40 align=center>
+                        <a href="http://www.amzon.com" class="title" target=_blank>Amzon</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <tr bgcolor='#ffffff'><td height=40 align=center>
+                        <a href="http://www.taobao.com" class="title" target=_blank>Taobao(China)</a>
+                        </td>
+                    </tr>
+
                     </tr>
                     <tr>
                         <td class=p7 bgcolor="#FFFFFF" align="right" height="24"><a href="links.php"><img

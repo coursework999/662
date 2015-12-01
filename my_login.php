@@ -98,7 +98,7 @@ if ($u_name) {
                               <td colspan=2 height=27 width="65%">
                                   <input class=stbtm name=submit type=submit value=login>
                                   <input class=stbtm name=submit2
-                                         onClick="JavaScript:window.location.href='register1.php'" type=button value=register>
+                                         onClick="JavaScript:window.location.href='my_register1.php'" type=button value=register>
                                   <input type="hidden" name="url" value="<?php echo $url ?>">
                               </td>
                           </tr>

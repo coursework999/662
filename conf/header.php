@@ -1,7 +1,8 @@
 <table width="750"  border="0"  align="center" cellspacing="0">
   <tr> 
     <td align="right" colspan="3" bgcolor="#E1ECff"> <a href="my_index.php" >Homepage</a>
-      | <a href="my_register1.php">User Registration</a> | <a href="my_login.php">Login</a> | <a href="my_modify.php">Modify Profile</a>
+      | <a href="my_register1.php">User Registration</a> | <a href="my_login.php">User Login</a>
+      | <a href="my_modify.php">Modify Profile</a> | <a href="my_admin.php">Admin Entry</a>
       | <a href="my_logout.php"><font color="red">Logout</font></a>
       &nbsp; </td>
   </tr>
@@ -27,8 +28,8 @@
   <tr> 
     <td bgcolor="#ffffff" id="clock">&nbsp; </td>
     <td align="right" bgcolor="#ffffff" colspan="2"><a href="my_buycar.php">Shopping Cart</a>
-      &nbsp;&nbsp;<a href="my_buystore.php">Wish List</a>
-      &nbsp;&nbsp;<a href="my_bank.php">Payment</a>
+      &nbsp;&nbsp;<a href="my_buystore.php">Favoriate</a>
+      &nbsp;&nbsp;<a href="my_bank.php">Checkout</a>
       &nbsp;&nbsp;<a href="my_dingdang.php">Orders</a>&nbsp;</td>
   </tr>
 </table>
@@ -36,7 +37,7 @@
   <tr>
     <td bgcolor="#FEFADA"> 
       <table width="750" align="center" bgcolor="#FEFADA" cellspacing="0" cellpadding="0">
-        <form name="formsearch" method="post" action="index_s.php" onSubmit="return chk();">
+        <form name="formsearch" method="post" action="my_index_s.php" onSubmit="return chk();">
           <tr> 
             <td>&nbsp;&nbsp;
               <?php

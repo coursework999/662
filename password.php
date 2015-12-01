@@ -4,7 +4,7 @@ session_start();
 ?>
 <html>
 <head>
-<title><?php echo $sitename ?> -- 取回密码</title>
+<title><?php echo $sitename ?> -- Get password back</title>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <?php echo $http_head; ?>
 <link rel="stylesheet" href="conf/style.css" type="text/css">
@@ -27,25 +27,25 @@ $password=$db->f('u_pass');
 $to=$db->f('email');
 $date=date('Y年m月d日 H:i:s');
 
-$body="亲爱的 $u_name ，您好：
+$body="Dear $u_name ，hello：
 
-  以下是您在  $sitename($siteurl) 网站的注册用户名和密码:
+  This is the username and password you registed in $sitename($siteurl):
      
-  用户名：$u_name
+  username：$u_name
 
-  密  码: $password
+  password: $password
 
-  请您尽快登录修改您的密码。
+  Please modify your password as soon as possible.
                     
                                $date
 "; 
-mail($to,"$sitename--您的用户密码",$body,"From:$siteemail"); 
-echo "<img src=\"images/lpassword.gif\">";
+mail($to,"$sitename--Your username and password",$body,"From:$siteemail");
+echo "Password has sent to your registered email, please check it soon!";
 }
 else
-echo "<img src=\"images/lsorry.gif\">";
+echo "Sorry, Username does not exist!";
 echo "<br><br>";
-echo "<input type=\"button\" value=\"返回首页\" onClick=\"JavaScript:window.location.href='index.php'\" class=\"stbtm\"  name=\"button3\">";
+echo "<input type=\"button\" value=\"Homepage\" onClick=\"JavaScript:window.location.href='my_index.php'\" class=\"stbtm\"  name=\"button3\">";
 }
 else
 {
@@ -55,7 +55,7 @@ function chk()
 {
 if(document.form10.u_name.value=="")
 {
-   window.alert("请填写您的用户名!");
+   window.alert("Please input your username!");
    document.form10.u_name.focus();
    return false; 
 }
@@ -63,10 +63,10 @@ if(document.form10.u_name.value=="")
 </script>
       </p>
       <form name="form10" method="post" onSubmit="return chk();">
-        <p><img src="images/lsent.gif" width="459" height="30"></p>
+    <p>Please input you username, we will sent your password to your email</p>
         <p> 
           <input type="text" name="u_name"  class=think>
-          <input type="submit" name="Submit" value="提交"  class="stbtm">
+          <input type="submit" name="Submit" value="Submit"  class="stbtm">
         </p>
       </form>
       <?php } ?>

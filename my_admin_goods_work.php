@@ -38,25 +38,7 @@ function up_img($file,$f_type)
     <link rel="stylesheet" href="conf/style.css" type="text/css">
 </head>
 <body bgcolor="#FFFFFF" text="#000000">
-
-<table width="750" border="0" bgcolor="#eeeeee" align="center">
-    <tr>
-        <td align="right" style="line-height:150%"><a href="my_index.php" class="clink03">index</a>
-            | <a href="my_admin.php" class="clink03">admin index</a>
-            | <a href="my_admin_goods" class="clink03">goods management</a>
-            <!-- admin_goods.php -->
-            | <a href="my_admin_order.php" class="clink03">order management</a>
-            <!-- admin_dingdang.php -->
-            | <a href="my_admin_user" class="clink03">user management</a>
-            <!-- admin_user.php -->
-            <BR>
-
-            other functions£º
-            <a href="my_backup.php" title="backup database" class="clink03">backup database</a>
-            | <a href="my_recovery.php" title="recovery database" target="_blank" class="clink03">recovery database</a>
-            &nbsp;</td>
-    </tr>
-</table>
+<?php include "conf/admin.php"; ?>
 
 <?php include "js_setselect.php"; ?>
 <table width="750" align="center">
