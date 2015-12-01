@@ -148,6 +148,7 @@ $db->query("select id,name,image,price_m,price,state
         </font></td>
     </tr>
 </table>
+
 <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
     <tr>
         <?php
@@ -247,6 +248,8 @@ $db->query("select id,name,image,price_m,price,state
     </table>
 </td>
 
+
+<!-- cart section -->
 
 <td width="170" valign="top" align="center">
     <table border=0 cellpadding=0 cellspacing=0 width=100%>

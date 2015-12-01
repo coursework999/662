@@ -2,6 +2,7 @@
 session_start();
 require ("conf/config.php");
 
+
 //para id2 represent like
 if ($id2!="")
 {
@@ -29,4 +30,6 @@ if ($id!="")
 }
 
 require("display.php");
+
+
 ?>
