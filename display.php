@@ -9,11 +9,9 @@
 
 <body>
 
-<p> in the body</p>
 
 <!-- the items in your cart -->
 <?php
-echo "display 0000000000000";
 
 if ($basket_items > 0) {
     $price_all = 0;
