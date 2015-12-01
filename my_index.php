@@ -278,7 +278,7 @@ $db->query("select id,name,image,price_m,price,state
                                     <td bgcolor=#ffffff valign=top>
                                         <iframe frameborder=0
                                                 height=182 name=cart scrolling=no
-                                                src="shopping.php"
+                                                src="my_shopping.php"
                                                 width="100%"></iframe>
                                     </td>
                                 </tr>
