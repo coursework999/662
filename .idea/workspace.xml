@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68d0e508-a695-4625-8efa-baf2ede30b31" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/my_index_s.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/header.php" afterPath="$PROJECT_DIR$/conf/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/links.php" afterPath="$PROJECT_DIR$/links.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_admin_goods_work.php" afterPath="$PROJECT_DIR$/my_admin_goods_work.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_admin_user.php" afterPath="$PROJECT_DIR$/my_admin_user.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_goods_list.php" afterPath="$PROJECT_DIR$/my_goods_list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_index.php" afterPath="$PROJECT_DIR$/my_index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_login.php" afterPath="$PROJECT_DIR$/my_login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_modify.php" afterPath="$PROJECT_DIR$/my_modify.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_register2.php" afterPath="$PROJECT_DIR$/my_register2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/password.php" afterPath="$PROJECT_DIR$/password.php" />
-    </list>
+    <list default="true" id="68d0e508-a695-4625-8efa-baf2ede30b31" name="Default" comment="" />
     <ignored path="662.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -70,7 +57,7 @@
       <file leaf-file-name="my_admin_goods_work.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my_admin_goods_work.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="20" selection-start="1637" selection-end="1637" vertical-scroll-proportion="-0.06633907">
+            <state line="66" column="43" selection-start="2199" selection-end="2199" vertical-scroll-proportion="0.33251232">
               <folding />
             </state>
           </provider>
@@ -184,8 +171,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
+    <option name="y" value="25" />
     <option name="width" value="1920" />
-    <option name="height" value="1032" />
+    <option name="height" value="1030" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -339,11 +327,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1032" extended-state="7" />
+    <frame x="0" y="25" width="1920" height="1030" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1430096" sideWeight="0.30939227" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15048026" sideWeight="0.97159094" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14886364" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -546,7 +534,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my_admin_goods_work.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="20" selection-start="1637" selection-end="1637" vertical-scroll-proportion="-0.06633907">
+        <state line="66" column="43" selection-start="2199" selection-end="2199" vertical-scroll-proportion="0.33251232">
           <folding />
         </state>
       </provider>
