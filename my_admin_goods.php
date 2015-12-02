@@ -94,7 +94,7 @@ include "admin_check.php";
                                     eval("page="+name+".value");
                                     if (isNaN(page) || page <=0 || page > <?php echo $totalpage ?>)
                                     {
-                                        alert ("请正确输入页数，最大值为 <?php echo $totalpage ?> ！");
+                                        alert ("please input the right page，max page is <?php echo $totalpage ?> ！");
                                         eval(name+".select()");
                                         return false;
                                     }
