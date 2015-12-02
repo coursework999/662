@@ -1,7 +1,7 @@
 
 <html>
 <head>
-    <title><?php echo $sitename ?> -- cart</title>
+    <title><?php echo $sitename ?> --small cart</title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <link rel="stylesheet" href="conf/style.css">
 </head>
@@ -12,6 +12,7 @@
 
 <!-- the items in your cart -->
 <?php
+session_start();
 
 if ($basket_items > 0) {
     $price_all = 0;

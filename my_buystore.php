@@ -7,7 +7,7 @@ switch ($op) {
     case "add":
 //把商品的id加入购物车
         if ($id != "") {
-            if (session_is_registered("basket_items"))
+            if (isset($_SESSION["basket_items"]))
                 require("addto_basket.inc");
             else
                 require("new_basket.inc");
