@@ -1,6 +1,6 @@
 <?php
  session_start();
- if (session_is_registered("admin_name") && isset($admin_name))
+ if (isset($_SESSION["admin_name"]))
    return ;
   else
   {

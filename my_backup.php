@@ -1,5 +1,5 @@
 <?php
-error_reporting(7);
+error_reporting(0);
 include "admin_check.php";
 
 if ($HTTP_POST_VARS['action']) {
