@@ -1,5 +1,6 @@
 <?php
 require "conf/config.php";
+
 if ($u)
 {
     $db->query("select null from $user_t where u_name='$u'");
@@ -9,9 +10,10 @@ if ($u)
         $flag=1;
 }
 ?>
+
 <html>
 <head>
-    <title><?php echo $sitename ?> register/title>
+    <title><?php echo $sitename ?> register</title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <?php echo $http_head; ?>
     <link rel="stylesheet" href="conf/style.css" type="text/css">
