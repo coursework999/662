@@ -14,6 +14,10 @@
 <?php
 session_start();
 
+$basket_amount = $_SESSION["basket_amount"];
+$basket_id = $_SESSION["basket_id"];
+$basket_items = $_SESSION["basket_items"];
+
 if ($basket_items > 0) {
     $price_all = 0;
     $tmp = "";
