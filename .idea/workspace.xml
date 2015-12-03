@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="68d0e508-a695-4625-8efa-baf2ede30b31" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/config.php" afterPath="$PROJECT_DIR$/conf/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/footer.php" afterPath="$PROJECT_DIR$/conf/footer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_admin.php" afterPath="$PROJECT_DIR$/my_admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my_login.php" afterPath="$PROJECT_DIR$/my_login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stat/include/visiteurs.log" afterPath="$PROJECT_DIR$/stat/include/visiteurs.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.txt" afterPath="$PROJECT_DIR$/readme.txt" />
     </list>
     <ignored path="662.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,11 +44,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="my_admin.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="my_admin.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my_admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="25" selection-start="708" selection-end="708" vertical-scroll-proportion="0.44444445">
-              <folding />
+            <state line="57" column="33" selection-start="1356" selection-end="1356" vertical-scroll-proportion="0.5958005">
+              <folding>
+                <marker date="1448984482312" expanded="true" signature="2208:2231" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="2208:3695" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="2240:3695" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="2420:3695" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="2420:2508" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="2514:3695" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="2550:3695" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="2550:2626" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="2583:2865" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="2583:2626" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="2717:2831" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="2898:2941" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="3032:3203" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="3285:3695" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="3354:3695" placeholder="..." />
+                <marker date="1448984482312" expanded="true" signature="3620:3695" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,7 +73,7 @@
       <file leaf-file-name="my_backup.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my_backup.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="8" selection-start="34" selection-end="44" vertical-scroll-proportion="-0.6666667">
+            <state line="31" column="44" selection-start="707" selection-end="707" vertical-scroll-proportion="-20.0">
               <folding>
                 <marker date="1448942594867" expanded="true" signature="6735:6927" placeholder="..." />
                 <marker date="1448942594867" expanded="true" signature="6751:6922" placeholder="..." />
@@ -73,24 +87,6 @@
         <entry file="file://$PROJECT_DIR$/backup.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.6666667">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="my_admin_goods.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my_admin_goods.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="190" column="29" selection-start="10632" selection-end="10632" vertical-scroll-proportion="-5.5185184">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_check.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin_check.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="17" selection-start="145" selection-end="145" vertical-scroll-proportion="-2.0">
               <folding />
             </state>
           </provider>
@@ -127,10 +123,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="footer.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="28" selection-start="1123" selection-end="1123" vertical-scroll-proportion="0.459854">
+            <state line="21" column="28" selection-start="1123" selection-end="1123" vertical-scroll-proportion="-14.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readme.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/readme.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="40" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my_login.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my_login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="35" selection-start="667" selection-end="667" vertical-scroll-proportion="-13.333333">
               <folding />
             </state>
           </provider>
@@ -149,7 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/my_index_s.php" />
         <option value="$PROJECT_DIR$/links.php" />
         <option value="$PROJECT_DIR$/my_goods_list.php" />
         <option value="$PROJECT_DIR$/password.php" />
@@ -159,20 +172,21 @@
         <option value="$PROJECT_DIR$/my_admin_user.php" />
         <option value="$PROJECT_DIR$/my_admin_goods_work.php" />
         <option value="$PROJECT_DIR$/my_index.php" />
-        <option value="$PROJECT_DIR$/my_admin.php" />
         <option value="$PROJECT_DIR$/my_backup.php" />
         <option value="$PROJECT_DIR$/my_admin_goods.php" />
-        <option value="$PROJECT_DIR$/my_login.php" />
         <option value="$PROJECT_DIR$/conf/config.php" />
         <option value="$PROJECT_DIR$/conf/footer.php" />
+        <option value="$PROJECT_DIR$/readme.txt" />
+        <option value="$PROJECT_DIR$/my_login.php" />
+        <option value="$PROJECT_DIR$/my_admin.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="25" />
-    <option name="width" value="1920" />
-    <option name="height" value="1030" />
+    <option name="x" value="-4" />
+    <option name="width" value="1928" />
+    <option name="height" value="1035" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -256,20 +270,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="stat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="662" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="662" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="conf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -326,11 +326,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1920" height="1030" extended-state="1" />
+    <frame x="-4" y="0" width="1928" height="1035" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15380493" sideWeight="0.97159094" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14407684" sideWeight="0.9731183" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14886364" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -403,11 +403,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/password.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="3" selection-start="1001" selection-end="1012" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my_modify.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="17" selection-start="1488" selection-end="1488" vertical-scroll-proportion="0.0">
@@ -423,13 +418,6 @@
     <entry file="file://$PROJECT_DIR$/my_admin_user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="81" selection-start="1398" selection-end="1398" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my_login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="36" selection-start="1881" selection-end="1882" vertical-scroll-proportion="-4.4444447">
           <folding />
         </state>
       </provider>
@@ -451,24 +439,6 @@
     <entry file="file://$PROJECT_DIR$/backup.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.6666667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my_backup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="8" selection-start="34" selection-end="44" vertical-scroll-proportion="-0.6666667">
-          <folding>
-            <marker date="1448942594867" expanded="true" signature="6735:6927" placeholder="..." />
-            <marker date="1448942594867" expanded="true" signature="6751:6922" placeholder="..." />
-            <marker date="1448942594867" expanded="true" signature="6754:6917" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my_admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="25" selection-start="708" selection-end="708" vertical-scroll-proportion="0.44444445">
           <folding />
         </state>
       </provider>
@@ -525,8 +495,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/footer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="28" selection-start="1123" selection-end="1123" vertical-scroll-proportion="0.459854">
+        <state line="21" column="28" selection-start="1123" selection-end="1123" vertical-scroll-proportion="-14.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="40" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_backup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="44" selection-start="707" selection-end="707" vertical-scroll-proportion="-20.0">
+          <folding>
+            <marker date="1448942594867" expanded="true" signature="6735:6927" placeholder="..." />
+            <marker date="1448942594867" expanded="true" signature="6751:6922" placeholder="..." />
+            <marker date="1448942594867" expanded="true" signature="6754:6917" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="35" selection-start="667" selection-end="667" vertical-scroll-proportion="-13.333333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="33" selection-start="1356" selection-end="1356" vertical-scroll-proportion="0.5958005">
+          <folding>
+            <marker date="1448984482312" expanded="true" signature="2208:2231" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="2208:3695" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="2240:3695" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="2420:3695" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="2420:2508" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="2514:3695" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="2550:3695" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="2550:2626" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="2583:2865" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="2583:2626" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="2717:2831" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="2898:2941" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="3032:3203" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="3285:3695" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="3354:3695" placeholder="..." />
+            <marker date="1448984482312" expanded="true" signature="3620:3695" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -56,9 +56,8 @@ if ($a_xmxm == $ad_name && $a_pass == $ad_pass) {
     if ($logout) {
         session_destroy();
         echo "<br>you have logged out successfully!";
-        echo '<meta http-equiv="refresh" content="2;URL=my_index.php">back to index';
+        echo '<meta http-equiv="refresh" content="2;URL=my_admin.php">back to index';
     }
-
 
 
     if (session_is_registered("admin_name") && isset($admin_name))
@@ -70,8 +69,10 @@ if ($a_xmxm == $ad_name && $a_pass == $ad_pass) {
     if ($submit)
         if (session_is_registered("admin_name") && isset($admin_name))
             echo "";
-        else
-            echo "<br>username or password is incorrect. Please enter again!  <a href='my_admin.php'><font color=blue>[login]</a>";
+        else{
+            echo "<br>username or password is incorrect. Please enter again!  <a href='my_admin.php'><font color=blue>[login]</font></a>";
+        }
+
 
     //wait for inputing uname & pwd
     else {
