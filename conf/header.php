@@ -98,8 +98,8 @@ function show() {
   if(sHour <= 9) sHour = "0" + sHour;
   if(sMinute <= 9) sMinute = "0" + sMinute;
   if(sSecond <= 9) sSecond = "0" + sSecond;
-  sClock = "&nbsp;&nbsp;" + iYear + "Äê" + (iMonth + 1) + "ÔÂ" + iDay + "ÈÕ " + sWeek
-    + " " + sHour + ":" + sMinute + ":" + sSecond;
+  sClock = "&nbsp;&nbsp;" + (iMonth + 1) + "/" + iDay + "/ "  + iYear + ""
+            + " " + sHour + ":" + sMinute + ":" + sSecond;
   if(document.layers) {
     document.layers.clock.document.write(sClock);
     document.layers.clock.document.close();

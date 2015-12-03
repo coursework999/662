@@ -104,7 +104,7 @@ require("link.php");
                 $db->query("select id,name from $class_t where up_id=0");
 
             while ($db->next_record()) {
-                echo "<a href='my_index?category_num=".$db->f('id')."'><b><font color=\"#333399\">[ </font></b><font color=\"#FF3333\">" . $db->f("name") . "</font><font color=\"#333399\"><b> ]</b></font></a><BR>\n";
+                echo "<a href='my_index.php?category_num=".$db->f('id')."'><b><font color=\"#333399\">[ </font></b><font color=\"#FF3333\">" . $db->f("name") . "</font><font color=\"#333399\"><b> ]</b></font></a><BR>\n";
                 echo "<table id=\"menu$h\" style=\"display:none\" width=\"98%\" border=\"0\" cellspacing=\"3\" cellpadding=\"0\"><tr align=\"center\">\n";
                 echo "</tr></table>";
 
@@ -148,6 +148,7 @@ $db->query("select id,name,image,price_m,price,state
         </font></td>
     </tr>
 </table>
+
 <table width="96%" border="0" cellspacing="0" cellpadding="0" align="center">
     <tr>
         <?php
@@ -248,6 +249,8 @@ $db->query("select id,name,image,price_m,price,state
 </td>
 
 
+<!-- cart section -->
+
 <td width="170" valign="top" align="center">
     <table border=0 cellpadding=0 cellspacing=0 width=100%>
         <tbody>
@@ -278,7 +281,7 @@ $db->query("select id,name,image,price_m,price,state
                                     <td bgcolor=#ffffff valign=top>
                                         <iframe frameborder=0
                                                 height=182 name=cart scrolling=no
-                                                src="shopping.php"
+                                                src="my_shopping.php"
                                                 width="100%"></iframe>
                                     </td>
                                 </tr>

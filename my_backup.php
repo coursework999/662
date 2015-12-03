@@ -1,5 +1,5 @@
 <?php
-error_reporting(7);
+error_reporting(0);
 include "admin_check.php";
 
 if ($HTTP_POST_VARS['action']) {
@@ -8,11 +8,7 @@ if ($HTTP_POST_VARS['action']) {
     $action = $HTTP_GET_VARS['action'];
 }
 
-if (function_exists("set_time_limit") == 1 and get_cfg_var("safe_mode") == 0) {
-    @set_time_limit(0);
-}
-
-if (isset($action) and ($action == "csvtable" or $action == "sqltable")) {
+if (isset($action) and ($action == "sqltable")) {
     $noheader = 1;
 }
 
@@ -134,64 +130,6 @@ function sqldumptable($table, $fp = 0)
     //return $tabledump;
 }
 
-function csvdumptable($table, $separator, $quotes, $showhead)
-{
-    global $DB_site;
-
-    // get columns for header row
-    if ($showhead) {
-        $firstfield = 1;
-        $fields = $DB_site->query("SHOW FIELDS FROM $table");
-        while ($field = $DB_site->fetch_array($fields)) {
-            if (!$firstfield) {
-                $contents .= $separator;
-            } else {
-                $firstfield = 0;
-            }
-            $contents .= $quotes . $field['Field'] . $quotes;
-        }
-        $DB_site->free_result($fields);
-    }
-    $contents .= "\n";
-
-
-    // get data
-    $rows = $DB_site->query("SELECT * FROM $table");
-    $numfields = $DB_site->num_fields($rows);
-    while ($row = $DB_site->fetch_array($rows)) {
-
-        $fieldcounter = -1;
-        $firstfield = 1;
-        while (++$fieldcounter < $numfields) {
-            if (!$firstfield) {
-                $contents .= $separator;
-            } else {
-                $firstfield = 0;
-            }
-
-            if (!isset($row[$fieldcounter])) {
-                $contents .= "NULL";
-            } else {
-                $contents .= $quotes . addslashes($row[$fieldcounter]) . $quotes;
-            }
-        }
-
-        $contents .= "\n";
-    }
-    $DB_site->free_result($rows);
-
-    return $contents;
-}
-
-if ($_POST['action'] == "csvtable") {
-    header("Content-disposition: filename=" . $table . ".csv");
-    header("Content-type: unknown/unknown");
-
-    echo csvdumptable($table, $separator, $quotes, $showhead);
-
-    exit;
-
-}
 
 if ($_POST['action'] == "sqltable") {
     header("Content-disposition: filename=dbbackup-" . date("m-d-Y", time()) . ".sql");
@@ -208,6 +146,7 @@ if ($_POST['action'] == "sqltable") {
     exit;
 
 }
+
 if ($_POST['action'] == "sqlfile") {
     include "conf/admin.php";
     $filehandle = fopen($filename, "w");
@@ -234,8 +173,6 @@ if ($action == "choose") {
 
 <?php include "conf/admin.php"; ?>
 
-<p>Here, you can backup your Mall database</p>
-
 <P><b>Export Database:</b></p>
 
 <?php
@@ -254,27 +191,10 @@ if ($action == "choose") {
     doformheader("my_backup", "sqlfile");
     maketableheader("Save files to server:");
     makeinputcode("Path and filename on server", "filename", "bak/dbbackup-" . date("m-d-Y", time()) . ".sql", 0, 60);
-    echo "<tr class='firstalt'><td colspan='2'><p><b>PHP written limit availabe in the directory</b> (setting chmod 0777)</p></td></tr>\n";
+    echo "<tr class='firstalt'><td colspan='2'><p><b>PHP written limit available in the directory</b> (setting chmod 0777)</p></td></tr>\n";
     echo "<tr class='firstalt'><td colspan='2'><p><b>Warning:</b> Do not backup your file in the directory which can be accessed through Internet
     If possible, you'd better put it out of WEB root directory!</p></td></tr>\n";
     doformfooter("Save files");
-
-
-
-    doformheader("my_backup", "csvtable");
-    maketableheader("Export using CSV format:");
-    echo "<tr class='" . getrowbg() . "'>\n<td><p>Select Table:</p></td>\n<td><p>";
-    echo "<select name=\"table\" size=\"1\">\n";
-    $result = $DB_site->query("SHOW tables");
-    while ($currow = $DB_site->fetch_array($result)) {
-        echo "<option value=\"$currow[0]\">$currow[0]</option>\n";
-    }
-    echo "</select></p></td></tr>\n\n";
-    makeinputcode("Separator", "separator", ",");
-    makeinputcode("Quotes", "quotes", "'");
-    makeyesnocode("Show Column Name", "showhead", 1);
-    doformfooter("OK");
-
 }
 
 cpfooter();

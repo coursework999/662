@@ -1,8 +1,9 @@
 <?php
 session_start();
+require ("conf/config.php");
+
 
 //para id2 represent like
-//para id represent cart
 if ($id2!="")
 {
     if ($scj)
@@ -19,13 +20,16 @@ if ($id2!="")
     echo '<meta http-equiv="refresh" content="0;URL=my_shopping.php">';
 }
 
-//把商品的id加入购物车
+//id represent the cart
 if ($id!="")
 {
-    if (session_is_registered("basket_items"))
+    if (isset($_SESSION["basket_items"]))
         require("addto_basket.inc");
     else
         require("new_basket.inc") ;
 }
+
 require("display.php");
+
+
 ?>

@@ -60,14 +60,19 @@ if ($a_xmxm == $ad_name && $a_pass == $ad_pass) {
     }
 
 
+<<<<<<< HEAD
     if (session_is_registered("admin_name") && isset($admin_name))
+=======
+
+    if (isset($_SESSION["admin_name"]))
+>>>>>>> 7d9e19ccad4db499ecdc32c8bef01ba872c1b72f
         echo "<br>status  : <font color=blue>$admin_name </font>, logged in...&nbsp;&nbsp;  <input class=stbtm2 name=button2 type=button onClick=\"JavaScript:if (confirm('quit ?')) window.location.href='my_admin.php?logout=1'\" value=\"quit\">";
     else
         echo "<br>status  :  unlogged...";
 
     //submit
     if ($submit)
-        if (session_is_registered("admin_name") && isset($admin_name))
+        if (isset($_SESSION["admin_name"]))
             echo "";
         else{
             echo "<br>username or password is incorrect. Please enter again!  <a href='my_admin.php'><font color=blue>[login]</font></a>";
@@ -83,7 +88,7 @@ if ($a_xmxm == $ad_name && $a_pass == $ad_pass) {
             <td align="center">
 
                 <?php
-                if (!(session_is_registered("admin_name") && isset($admin_name))) {
+                if (!isset($_SESSION["admin_name"])) {
                     ?>
                     <form method=post name=login>
                         <table align=center border=0 cellpadding=2 cellspacing=5 width="260">

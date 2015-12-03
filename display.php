@@ -1,9 +1,7 @@
-<?php
-require "conf/config.php";
-?>
+
 <html>
 <head>
-    <title><?php echo $sitename ?> -- 购物车</title>
+    <title><?php echo $sitename ?> --small cart</title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <link rel="stylesheet" href="conf/style.css">
 </head>
@@ -11,8 +9,15 @@ require "conf/config.php";
 
 <body>
 
+
 <!-- the items in your cart -->
 <?php
+session_start();
+
+$basket_amount = $_SESSION["basket_amount"];
+$basket_id = $_SESSION["basket_id"];
+$basket_items = $_SESSION["basket_items"];
+
 if ($basket_items > 0) {
     $price_all = 0;
     $tmp = "";
@@ -48,7 +53,8 @@ if ($basket_items > 0) {
 
     echo "<a href='my_bank.php' target='_blank'>pay for them</a>";
     echo " | <a href='my_buycar.php' target='_blank'>go on shopping</a>";
-} else {
+}
+else {
     $basket_items = 0;
     unset($basket_amount);
     unset($basket_id);
@@ -74,5 +80,7 @@ echo $tmp;
         </TD>
     </TR>
 </TABLE>
+
+
 </body>
 </html>

@@ -93,7 +93,7 @@ if (session_is_registered("admin_name") && isset($admin_name)) {
                                 function check_page(name) {
                                     eval("page=" + name + ".value");
                                     if (isNaN(page) || page <= 0 || page > <?php echo $totalpage ?>) {
-                                        alert("请正确输入页数，最大值为 <?php echo $totalpage ?> ！");
+                                        alert("please input the right page, max page is <?php echo $totalpage ?> ！");
                                         eval(name + ".select()");
                                         return false;
                                     }
@@ -177,7 +177,7 @@ if (session_is_registered("admin_name") && isset($admin_name)) {
                                 <?php
                                 $link_order = "action=update&id=" . $db->f('id');
                                 echo "<a href=\"my_admin_user_work.php?$link_order\">";
-                                echo '<img src="images/xg.gif" alt="修 改" border="0"></a>';
+                                echo '<img src="images/xg.gif" alt="modify" border="0"></a>';
                                 ?>
                             </td>
                             <td bgcolor="#FFFFFF" align="center" width="5%">
