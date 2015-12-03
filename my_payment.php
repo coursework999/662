@@ -13,6 +13,7 @@ include "chk.php";
 </head>
 
 <body>
+<?php include "conf/header.php" ?>
 
 <table width="750" border="0" align="center" cellspacing="0" cellpadding="0">
 <tr align="center" bgcolor="#efefef">
@@ -110,12 +111,12 @@ if ($basket_items == 0) {
 //把用户的订单的送货信息添加到requests表中
                 $a = split(',', $province);
                 $province = $a[1];
-                print "insert into $requests_t values(null,$login_id,'$name',$sex,'$email','$province','$city','$tel','$address','$post','$attrib',$price_all,0,0,0,'$date_tmp')";
+                //print "insert into $requests_t values(null,$login_id,'$name',$sex,'$email','$province','$city','$tel','$address','$post','$attrib',$price_all,0,0,0,'$date_tmp')";
                 $db2->query("insert into $requests_t
            values(null,$login_id,'$name',$sex,'$email','$province','$city','$tel',
                '$address','$post','$attrib',$price_all,0,0,0,'$date_tmp')");
                 $key_requests = $db2->insert_id();
-                print "<p>$key_requests";
+                //print "<p>$key_requests";
 //得到此次的订单号
 
                 $db->query("select id from $shopping_t where user_id=$login_id and requests_id=0");
@@ -302,6 +303,6 @@ if ($basket_items == 0) {
 
 
 <br>
-
+<?php include "conf/footer.php" ?>
 </body>
 </html>

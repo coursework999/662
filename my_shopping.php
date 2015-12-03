@@ -1,6 +1,6 @@
 <?php
 session_start();
-require ("conf/config.php");
+require ('conf/config.php');
 
 
 //para id2 represent like

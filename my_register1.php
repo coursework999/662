@@ -1,3 +1,6 @@
+
+<!-- This page is the first register page, a valid user name is needed in this page. -->
+
 <?php
 require "conf/config.php";
 

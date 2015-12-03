@@ -59,14 +59,8 @@ if ($a_xmxm == $ad_name && $a_pass == $ad_pass) {
         echo '<meta http-equiv="refresh" content="2;URL=my_admin.php">back to index';
     }
 
-
-<<<<<<< HEAD
-    if (session_is_registered("admin_name") && isset($admin_name))
-=======
-
     if (isset($_SESSION["admin_name"]))
->>>>>>> 7d9e19ccad4db499ecdc32c8bef01ba872c1b72f
-        echo "<br>status  : <font color=blue>$admin_name </font>, logged in...&nbsp;&nbsp;  <input class=stbtm2 name=button2 type=button onClick=\"JavaScript:if (confirm('quit ?')) window.location.href='my_admin.php?logout=1'\" value=\"quit\">";
+        echo "<br>status  : <font color=blue>".$_SESSION["admin_name"]." </font>, logged in...&nbsp;&nbsp;  <input class=stbtm2 name=button2 type=button onClick=\"JavaScript:if (confirm('quit ?')) window.location.href='my_admin.php?logout=1'\" value=\"quit\">";
     else
         echo "<br>status  :  unlogged...";
 

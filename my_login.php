@@ -1,3 +1,7 @@
+
+
+<!-- This login page, user provide username and password to login -->
+
 <?php
 
 require "conf/config.php";
@@ -29,7 +33,7 @@ if ($u_name) {
                 $db->query("update $user_t set last_date='$date_tmp',times=times+1
             where u_name='$u_name'");
                 if ($url == $PHP_SELF || $url == "") $url = "my_index.php";
-                $err = '<meta http-equiv="refresh" content="2;URL=' . $url . '">login successfully, go back to index......';
+                $err = '<meta http-equiv="refresh" content="2;URL=' . $url . '">login successfully, go back to homepage......';
             }
         } else
             $err = "password incorrect, input your password again. <a href='my_login.php' class='title'>[login]</a>";

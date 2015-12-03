@@ -136,7 +136,7 @@ echo substr($pay_str[$db->f('pay')],0,8);
           <td align=center>
             $<?php echo $db->f('fee')+$send_money; ?></td>
           <td align=center> 
-            <input type="button" name="Button" value="View" class="think" <?php echo "onclick=\"javaScript:window.open('dingdang_disp.php?id=".($db->f('id')+$init_num)."','orderform')\"" ?>>
+            <input type="button" name="Button" value="View" class="think" <?php echo "onclick=\"javaScript:window.open('my_dingdang_disp.php?id=".($db->f('id')+$init_num)."','orderform')\"" ?>>
             <input type="button" name="Button2" value="delete" class="think" <?php echo "onclick=\"javaScript:if (confirm('Are you sure to delete?')) window.location.href='$PHP_SELF?action=del&id=".($db->f('id')+$init_num)."'\""; if ($db->f('mytime')>$del_delay) echo "disabled"; ?>>
           </td>
         </tr>

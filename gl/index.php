@@ -1,3 +1,3 @@
 <?php
-Header("Location: ../admin.php");
+Header("Location: ../my_admin.php");
 ?>

@@ -1,3 +1,6 @@
+
+<!-- This page is the second register page, password and some basic info are needed in this page. -->
+
 <?php
 require "conf/config.php";
 if ($u == "") {

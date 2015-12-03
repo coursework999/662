@@ -1,3 +1,6 @@
+
+<!-- Header of custom page -->
+
 <table width="750"  border="0"  align="center" cellspacing="0">
   <tr> 
     <td align="right" colspan="3" bgcolor="#E1ECff"> <a href="my_index.php" >Homepage</a>

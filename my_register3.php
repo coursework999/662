@@ -1,13 +1,16 @@
+
+<!-- This page is the third register page, warn the result of registraion -->
+
 <?php
 require "conf/config.php";
 if ($u=="")
 {
-    echo "参数错误!";
+    echo "Error!";
     exit();
 }
 if ($user_reg_flag==0)
 {
-    echo "不能注册新用户 <BR><BR>对不起，系统已经关闭了新用户注册功能，如有问题请和管理员联系。";
+    echo "Cannot register new user <BR><BR>Sorry, registration has shut down, please contact administrator.";
     exit();
 }
 ?>
@@ -64,7 +67,7 @@ if ($user_reg_flag==0)
                             ?>
                         </p>
                         <p>
-                            <input type="button" value="index" onClick="JavaScript:window.location.href='my_index.php'" class="stbtm"  name="button3">
+                            <input type="button" value="Home" onClick="JavaScript:window.location.href='my_index.php'" class="stbtm"  name="button3">
                         </p>
                     </td>
                 </tr>

@@ -1,3 +1,6 @@
+
+<!-- Footer of custom page -->
+
 <table align=center border=0 cellpadding=0 cellspacing=0 width=750>
   <tr> 
     <td background=images/bg.gif height=2><img height=3 src="images/bg.gif" width=6></td>
@@ -19,4 +22,6 @@
       <br>
       E_mail:<a href="mailto:<?php echo $siteemail ?>" class="clink03"> 
       <?php echo $siteemail ?>
-      </a></td></tr></table>
+      </a></td>
+</tr>
+</table>

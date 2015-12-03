@@ -15,11 +15,12 @@ include "chk.php";
 
 
 <body>
+<?php include "conf/header.php" ?>
 
 <?php
 if ($basket_items == 0) {
     echo "<center><br><br><img src='images/emptcart.gif'>";
-    echo  "<br><input class=stbtm name='继续购买' onClick=\"window.location.href='index.php';\" type=button value=继续购买>";
+    echo  "<br><input class=stbtm name='Continue' onClick=\"window.location.href='my_index.php';\" type=button value=continue>";
     echo "</center><br>";
 } else {
 
@@ -27,10 +28,10 @@ if ($basket_items == 0) {
 
 
 <!--my cart-->
-<table>
+<table align="center">
     <td height="2">
-        <table>
-            <form name="frmbuy" method="post">
+        <table align="center">
+            <form name="frmbuy" method="post" >
                 <tr>
                     <th>name</th>
                     <th>price</th>
@@ -93,15 +94,15 @@ if ($basket_items == 0) {
                         <table width="100%" border="0">
                             <tr>
                                 <td>if your change the count ，please click
-                                    <input class=stbtm name=更新 onClick="ChangeN();return false;" type=button
+                                    <input class=stbtm name=update onClick="ChangeN();return false;" type=button
                                            value="update"  <?php if ($basket_items == 0) echo "disabled"; ?>>
                                 </td>
                                 <td>
-                                    <input class=stbtm name=继续购买 onClick="window.location.href='my_index.php';"
+                                    <input class=stbtm name=continue onClick="window.location.href='my_index.php';"
                                            type=button value="go shopping">
                                 </td>
                                 <td>
-                                    <input class=stbtm name=放弃购买 onClick=" ClearCart();return false;" type=submit
+                                    <input class=stbtm name=quit onClick=" ClearCart();return false;" type=submit
                                            value="give up" <?php if ($basket_items == 0) echo "disabled"; ?>>
                                 </td>
                             </tr>
@@ -131,10 +132,10 @@ if ($basket_items == 0) {
 
 
 <!--add some info for payment-->
-<p><img src="images/new_shouhuo.gif" width="258" height="30">
+<p  align="center"><img src="images/new_shouhuo.gif" width="258" height="30" >
 </p>
-<table>
-<tr align="center">
+<table  align="center">
+<tr>
 <td>
 
 <?php
@@ -192,7 +193,7 @@ $db->next_record();
         for (i = 0; i <= lth; i++)
             document.formlogin.province.remove(0);
         var oOption = document.createElement("OPTION");
-        oOption.text = "请选择省份";
+        oOption.text = "Select State";
         document.formlogin.province.add(oOption);
         oOption.selected = 0;
         oOption.empty;
@@ -223,7 +224,7 @@ $db->next_record();
         for (i = 0; i <= lth; i++)
             document.formlogin.province.remove(0);
         var oOption = document.createElement("OPTION");
-        oOption.text = "请选择省份";
+        oOption.text = "Select State";
         document.formlogin.province.add(oOption);
         oOption.selected = 1;
         oOption.empty;
@@ -262,7 +263,7 @@ $db->next_record();
                         bReturn = false;
 
                     if (!bReturn) {
-                        alert('为了购物顺畅，请输入真实的姓名！');
+                        alert('Please enter your real name');
                         return false;
                     }
 
@@ -273,7 +274,7 @@ $db->next_record();
     }
 </script>
 <form name="formlogin" method="post" action="my_payment.php" onSubmit=return(check());>
-    <table width="100%" border="0">
+    <table width="100%" border="0" align="center">
         <tr>
             <td>Name：</td>
             <td width="86%" height="18">
@@ -386,7 +387,7 @@ $db->next_record();
 </td>
 </tr>
 </table>
-
+<?php include "conf/footer.php"; ?>
 
 </body>
 </html>
