@@ -2,23 +2,6 @@
 require "conf/options.php";
 require "conf/db_mysql.php";
 
-
-//付款方式设置 商店设置
-
-//网站的付款方式
-$pay_str[2] = "建设银行
-      
-　　　建设银行
-　　　账号：4367423811550274995";
-$pay_str[3] = "农业银行
-
-　　　建设银行
-　　　账号：1038200111013357977";
-/*这里的
-数组的值1,2,3分别是对应bank.php，payment.php页面中，付款方式的值。
-由于在dingdang.php页面的订单方式会只显示4个汉字，即8个字符，因此，建议前四个汉字为固定的付款方式
-*/
-
 //关闭错误提示
 //error_reporting(0);
 session_start(); //启动session变量

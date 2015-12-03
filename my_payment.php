@@ -191,7 +191,7 @@ if ($basket_items == 0) {
                     <td width="116"> receiver </td>
                     <td width="500">
                         <?php
-                        if ($sex == 1) echo "Mr"; else echo "Mrs";
+                        if ($sex == 1) echo "Mr. "; else echo "Mrs. ";
                         echo  $name;  ?>
                     </td>
                 </tr>
@@ -245,20 +245,14 @@ if ($basket_items == 0) {
                     </td>
                 </tr>
                 <tr>
-                    <td width="116">message</td>
-                    <td width="500">
-                        <?php echo  $attrib; ?>
-                        &nbsp;</td>
-                </tr>
-                <tr>
                     <td width="116" bgcolor="f5f5f5">all</td>
                     <td width="500" bgcolor="f5f5f5">all£¨<font color="red" size="4">
-                        <?php echo  $price_all + $send_money; ?>
-                        $</font>£©=item £¨<font color="red" size="4">
-                        <?php echo  $price_all; ?>
+                        $<?php echo  $price_all + $send_money; ?>
+                        </font>£©=item £¨<font color="red" size="4">
+                        $<?php echo  $price_all; ?>
                     </font>)$+delivery£¨<font color="red" size="4">
-                        <?php echo  $send_money; ?>
-                    </font>$£©
+                        $<?php echo  $send_money; ?>
+                    </font>£©
 
                         <?php
                         if ($price_sum >= 1000 and $flag) echo "expanse more than 1000 $£¬debate 10%";
@@ -271,20 +265,7 @@ if ($basket_items == 0) {
                     <td width="116">delivery</td>
                     <td width="500">UPS</td>
                 </tr>
-                <tr>
-                    <td width="116">&nbsp;</td>
-                    <td width="500">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td width="116" bgcolor="f5f5f5" valign="top">payment method</td>
-                    <td width="500" bgcolor="f5f5f5">
-                        <?php echo nl2br($pay_str[$pay]); ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="116">&nbsp;</td>
-                    <td width="500">&nbsp;</td>
-                </tr>
+
 
                 <tr>
                     <td colspan="2" bgcolor="f5f5f5" align="center"><b><font color="#cc0000">please pay soon. So that we can deal with the order</font></b></td>

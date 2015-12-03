@@ -3,7 +3,7 @@
 
 <?php
 require "conf/config.php";
-include "chk.php";
+
 session_start();
 
 
@@ -116,19 +116,30 @@ if ($op2) echo '<script language="javascript"> location.href="my_buycar.php";</s
         </script>
     </p>
 </div>
-
+<table border=0 cellpadding=0 cellspacing=0 width=630 align="center">
+    <tbody>
+    <tr>
+        <th bgcolor=#ffffff height=22 valign=top width="3%">&nbsp;</th>
+        <td bgcolor=#ffffff colspan=3 height=22><b><font class=p14 color=#cc0000>Shopping Cart</font></b></td>
+    </tr>
+    <tr bgcolor=#cc0000>
+        <td colspan=4 height=2 valign=top></td>
+    </tr>
+    </tbody>
+</table>
 <!--my cart-->
-<table align="center">
-    <td height="2">
+<table width=630 align="center">
+<tr>
+    <td>
         <table>
             <form name="frmbuy" method="post">
-                <tr>
-                    <th>name</th>
-                    <th>price</th>
-                    <th>prime</th>
-                    <th>count</th>
-                    <th>sum</th>
-                    <th >operation</th>
+                <tr bgcolor="#e4e4e4">
+                    <td width="40%" align="center">name</td>
+                    <td width="8%" align="center">price</td>
+                    <td width="8%" align="center">membership price</td>
+                    <td width="8%" align="center">count</td>
+                    <td width="8%" align="center">sum</td>
+                    <td width="28%" align="center">operations</td>
                 </tr>
 
                 <?php
@@ -184,15 +195,15 @@ if ($op2) echo '<script language="javascript"> location.href="my_buycar.php";</s
                         <table width="100%" border="0">
                             <tr>
                                 <td>if your change the count ，please click
-                                    <input class=stbtm name=更新 onClick="ChangeN();return false;" type=button
+                                    <input class=stbtm name=update onClick="ChangeN();return false;" type=button
                                            value="update"  <?php if ($basket_items == 0) echo "disabled"; ?>>
                                 </td>
                                 <td>
-                                    <input class=stbtm name=继续购买 onClick="window.location.href='my_index.php';"
+                                    <input class=stbtm1 name=continue onClick="window.location.href='my_index.php';"
                                            type=button value="go shopping">
                                 </td>
                                 <td>
-                                    <input class=stbtm name=放弃购买 onClick=" ClearCart();return false;" type=submit
+                                    <input class=stbtm name=quit onClick=" ClearCart();return false;" type=submit
                                            value="give up" <?php if ($basket_items == 0) echo "disabled"; ?>>
                                 </td>
                             </tr>
@@ -214,7 +225,70 @@ if ($op2) echo '<script language="javascript"> location.href="my_buycar.php";</s
     </tr>
 </table>
 
+<div align=center>
+    <table align=center border=0 cellpadding=0 cellspacing=0 width=630>
+        <tbody>
 
-<?php include "conf/footer.php"; ?>
+        <tr>
+            <td bgcolor=#cc0000 height=22 valign=top width="3%">&nbsp;</td>
+            <td bgcolor=#cc0000 height=22 width="87%">
+                <div align=left><b><font color=#ffffff>Your favorite list has"<?php echo ($scj=="")?0:count(split("&&",$scj)) ?>"Products</font></b> </div>
+            </td>
+            <td bgcolor=#ffc40f class=pad03 height=22 valign=bottom width="87%">
+                <div align=center><img alt=Show border=0 class=pad03 height=19
+                                       onClick="JavaScript:tmpstore.style.display=''"
+                                       src="images/cart_dot03.gif" style="CURSOR: hand" width=19> <img
+                        alt=Hide border=0 class=pad03 height=19
+                        onClick="JavaScript:tmpstore.style.display='none'"
+                        src="images/cart_04.gif" style="CURSOR: hand" width=19></div>
+            </td>
+            <td bgcolor=#ffc40f height=22 valign=top width="10%">&nbsp;
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div id=tmpstore name="tmpstore">
+        <table border=0 cellpadding=2 cellspacing=1 width=630>
+            <form action="" method=post name=form2>
+                <tr>
+                    <td align=middle bgcolor=#e4e4e4 height=20 width="50%">Name</td>
+                    <td align=middle bgcolor=#e4e4e4 height=20 width="10%">Price</td>
+                    <td align=middle bgcolor=#e4e4e4 height=20 width="10%">Membership Price</td>
+                    <td align=middle bgcolor=#e4e4e4 height=20 width="30%">Operations</td>
+                </tr>
+                <?php
+                $scsp=split("&&",$scj);
+                $m=($scj=="")?0:count($scsp);
+                for($j=0;$j<$m;$j++)
+                {
+                    $prod=$scsp[$j];
+                    $db->query("select name,price_m,price from $goods_t where id=$prod");
+                    $db->next_record();
+                    ?>
+                    <tr>
+                        <td align=left height=20 width="50%"><b>
+                            <?php echo stripslashes($db->f('name')); ?>
+                        </b></td>
+                        <td width="8%"><font color=#000000
+                                             size=2><strike>$<?php echo $db->f('price_m'); ?></strike> </font> </td>
+                        <td width="8%"><b><font
+                                color=#cc0000>$<?php echo $db->f('price'); ?></font></b></td>
+                        <td align=middle height=20 width="10%">
+                            <input class=stbtm name=clear onClick="buy2('<?php echo $prod ?>');return false;" type=button value=clear>
+                            <input class=stbtm1 name=add onClick="buy22('<?php echo $prod ?>');return false;" type=button value="add to cart">
+                        </td>
+                    </tr>
+                    <?php } ?>
+                <tr valign=bottom>
+                    <td background=images/speaking_bg.gif colspan=4 height=1
+                        width="100%"></td>
+                </tr>
+            </form>
+        </table>
+    </div>
+
+
+    <?php include "conf/footer.php"; ?>
 </body>
 </html>

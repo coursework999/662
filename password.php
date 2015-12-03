@@ -17,6 +17,10 @@ session_start();
       <p>&nbsp; </p>
       <p> 
         <?php
+
+
+
+
 if ($u_name)
 {
 $db->query("select u_pass,email from $user_t where u_name='$u_name'");
@@ -25,7 +29,7 @@ if ($db->num_rows())
 {
 $password=$db->f('u_pass');
 $to=$db->f('email');
-$date=date('YÄêmÔÂdÈÕ H:i:s');
+$date=date('m/d/Y H:i:s');
 
 $body="Dear $u_name £¬hello£º
 

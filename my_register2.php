@@ -252,34 +252,7 @@ function check() {
     document.formlogin.Submit.disabled = true;
     document.formlogin.Submit2.disabled = true;
 }
-function checkName() {
-    var args = checkName.arguments
-    var strWord;
-    var s;
-    var lStringLength;
-    var i;
-    var bReturn;
 
-    if (args.length > 0) {
-        strWord = args[0];
-        lStringLength = strWord.length;
-        if (lStringLength > 0) {
-            for (i = 0; i < lStringLength; i++) {
-                s = strWord.charCodeAt(i);
-                bReturn = true;
-                if (s < 255)
-                    bReturn = false;
-
-                if (!bReturn) {
-                    alert('Please input your reals name£¡');
-                    return false;
-                }
-
-            }
-        }
-    }
-    return true;
-}
 </script>
 </td>
 </tr>
@@ -338,8 +311,7 @@ function checkName() {
                             <tr>
                                 <td width="22%" align="right">name£º</td>
                                 <td width="78%">
-                                    <input type="text" name="name" class="think" maxlength="20" size="12"
-                                           Onchange="JavaScript:if(!checkName(this.value)) return false;">
+                                    <input type="text" name="name" class="think" maxlength="20" size="12">
                                     <font color="#CC0000">*</font></td>
                             </tr>
                             <tr>

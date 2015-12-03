@@ -97,35 +97,6 @@ function prvcty(pid,cid,name)
 function prv(id,name)
 {this.id=id;this.name=name;}
 
-function ctychg(n,k)
-{	
-	lth=document.formlogin.city.length
-	for (i=0;i<=lth;i++)
-	{
-		document.formlogin.city.remove(0);
-	}
-	
-	for (j=1;j<=ctycnt;j++)
-	{   
-
-	a=n.substring(0,n.indexOf(","));
-		if (ctylst[j].pid==a)
-		{
-			var oOption = document.createElement("OPTION");
-
-			oOption.text=ctylst[j].name;
-			oOption.value=ctylst[j].name;
-			document.formlogin.city.add(oOption);
-			if (ctylst[j].name==k)
-			{
-				oOption.selected=1;
-				cityname = ctylst[j].name;
-			}
-			oOption.empty;
-		}
-	}
-}
-
 function check()
 {
     var pass = document.formlogin.u_pass.value;
@@ -312,7 +283,7 @@ function check()
                       <tr> 
                         <td align="right" width="22%">State£º </td>
                         <td width="78%"> 
-                          <select  name=province onChange="ctychg(document.formlogin.province.value)" class="think">
+                          <select  name=province class="think">
                             <script language=javascript>
    			  document.write ("<option");
 			  document.write (">")
@@ -335,7 +306,7 @@ function check()
                       <tr> 
                         <td align="right" width="22%">City£º </td>
                         <td width="78%">
-                           <input type="text" name="tel" class="think" maxlength="40" size="20" value="<?php echo $db->f('city') ?>">
+                           <input type="text" name="city" class="think" maxlength="40" size="20" value="<?php echo $db->f('city') ?>">
 
                           <font color="#CC0000">*</font></td>
                       </tr>
