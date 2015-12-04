@@ -71,9 +71,9 @@ else
                             <?php echo stripslashes($db->f('name')); ?>
                         </b></td>
                         <td width="15%" align="center"><font color=#000000
-                                                             size=2><strike>£¤<?php echo $db->f('price_m'); ?></strike> </font> </td>
+                                                             size=2><strike>$<?php echo $db->f('price_m'); ?></strike> </font> </td>
                         <td width="15%" align="center"><b><font
-                                color=#cc0000>£¤<?php echo $db->f('price'); ?></font></b></td>
+                                color=#cc0000>$<?php echo $db->f('price'); ?></font></b></td>
                         <td width="15%" align="center">
                             <?php echo $basket_amount[$basket_counter] ?>
                         </td>
@@ -98,7 +98,7 @@ else
                     </td>
                     <td>&nbsp;</td>
                     <td colspan="2">
-                        <?php echo "SUM£º<b><font color=red>£¤$price_all_format</font></b>";?>
+                        <?php echo "SUM£º<b><font color=red>$$price_all_format</font></b>";?>
                     </td>
                 </tr>
             </table>

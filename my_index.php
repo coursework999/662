@@ -71,13 +71,7 @@ require("link.php");
                                         <input type="hidden" name="url" value="<?php echo $url ?>">
                                     </td>
                                 </tr>
-                                <tr align="center">
-                                    <td colspan=2 height=20 width="65%"><img height=11
-                                                                             src="images/forget.gif" width=11>
-                                        &nbsp;Forgotten password?£¬<a
-                                                href="password.php"><font
-                                                color=#ce0929>Click here£¡</font></a></td>
-                                </tr>
+                                
                                 </tbody>
                             </form>
                         </table>
