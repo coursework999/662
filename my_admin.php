@@ -44,7 +44,7 @@ if ($a_xmxm == $ad_name && $a_pass == $ad_pass) {
 <table align=center border=0 cellspacing=0 width=510>
     <tbody>
     <tr>
-        <td height=30 align="center"><img height=35 src="images/denlu1.gif"
+        <td height=30 align="center"><img height=35 src="images/denlu2.gif"
                                           width=170></td>
     </tr>
     <tr>
