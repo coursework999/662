@@ -27,7 +27,7 @@ function up_img($file, $f_type)
     if ($f_type == "image/gif") $local_file = "$local_file.gif";
     if ($f_type == "image/x-png") $local_file = "$local_file.png";
     copy($file, $local_file);
-    return $local_file; //返回图片的文件名
+    return $local_file; 
 }
 
 ?>
@@ -135,7 +135,7 @@ function up_img($file, $f_type)
                                     document.form1.class_id.options.length = 0;
                                     A = eval("A" + (s - 1));
                                     i = 0;
-                                    for (name in A) //访问该数组中的所有元素，name为下标，
+                                    for (name in A) 
                                     {
                                         document.form1.class_id.options.length++;
                                         document.form1.class_id.options[i].text = A[name];

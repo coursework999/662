@@ -191,9 +191,8 @@ if ($action == "choose") {
     doformheader("my_backup", "sqlfile");
     maketableheader("Save files to server:");
     makeinputcode("Path and filename on server", "filename", "bak/dbbackup-" . date("m-d-Y", time()) . ".sql", 0, 60);
-    echo "<tr class='firstalt'><td colspan='2'><p><b>PHP written limit available in the directory</b> (setting chmod 0777)</p></td></tr>\n";
-    echo "<tr class='firstalt'><td colspan='2'><p><b>Warning:</b> Do not backup your file in the directory which can be accessed through Internet
-    If possible, you'd better put it out of WEB root directory!</p></td></tr>\n";
+    echo "<tr class='firstalt'><td colspan='2'><p><b>please store at server's bak directory</b> </p></td></tr>\n";
+    
     doformfooter("Save files");
 }
 

@@ -36,7 +36,7 @@ function getLink(&$count, $ids, &$id)
   $min = $db->f('minID');
   $max = $db->f('maxID');
   $maxCount = $db->f('maxCount');
-  if(!$min || !$max) return ""; //可能没有记录
+  if(!$min || !$max) return ""; 
   if($count > $maxCount) $count = $maxCount;
 
   do

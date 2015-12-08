@@ -13,10 +13,10 @@ if ($id2!="")
         for($j=0;$j<count($scsp);$j++)
             if ($scsp[$j]==$id2) $f=0;
         if ($f)
-            setcookie("scj",$scj."&&".$id2,time()+60*60*24*365); //设置cookie的有效时间为一年
+            setcookie("scj",$scj."&&".$id2,time()+60*60*24*365); 
     }
     else
-        setcookie("scj",$id2,time()+60*60*24*365); //设置cookie的有效时间为一年
+        setcookie("scj",$id2,time()+60*60*24*365); 
     echo '<meta http-equiv="refresh" content="0;URL=my_shopping.php">';
 }
 

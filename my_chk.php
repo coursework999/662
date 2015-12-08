@@ -7,7 +7,7 @@ else
     ?>
 <html>
 <head>
-    <title><?php echo $sitename ?> -- 用户登录</title>
+    <title><?php echo $sitename ?> -- check login</title>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
     <?php echo $http_head; ?>
     <link rel="stylesheet" href="conf/style.css" type="text/css">

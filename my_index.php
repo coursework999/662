@@ -125,8 +125,8 @@ echo "&nbsp&nbsp&nbsp Last login：" . $cookielogintime;
 
 if (!$page) $page = 1;
 $db->query("select null from $goods_t " . $tmp);
-$total_num = $db->num_rows();//得到总记录数
-$totalpage = ceil($total_num / $num_to_show);//得到总页数
+$total_num = $db->num_rows();
+$totalpage = ceil($total_num / $num_to_show);
 $init_record = ($page - 1) * $num_to_show;
 
 $db->query("select id,name,image,price_m,price,state

@@ -45,7 +45,7 @@ if ($action == "choose") {
 
 <p>Here, you can recover your Mall database</p>
 
-<P><b>Recover Database according Backup SQL file:</b></p>
+<P><b>Recover Database according Backup SQL file(in bak directory):</b></p>
 
 
 <?php

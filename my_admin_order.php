@@ -4,18 +4,15 @@
 
 if ($action=="del")
 {
-    //delete用户订单表的订单
+    //delete order
     $db->query("delete from $requests_t where id=($id-$init_num)");
-    //delete用户shopping表的商品id
     $db->query("delete from $shopping_t where requests_id=($id-$init_num)");
 }
 if ($do=="update")
 {
     $db->query("update $requests_t set $action=$value where id=($id-$init_num)");
-//给用户发邮件通知用户
     if ($action=="send_out" && $value==1)
     {
-        //从订单库$requests_t中取出用户的一些信息
         $db->query("select name,email,tel,post,address,fee  from $requests_t where id=($id-$init_num)");
         $db->next_record();
         $email=$db->f('email');
@@ -25,12 +22,10 @@ if ($do=="update")
         $address=$db->f('address');
         $price_all=$db->f('fee');
 
-//从订单详细库中取出订单的详细信息
         $sendtmp="";
         $db->query("select goods_id,goods_num from $shopping_t where requests_id=($id-$init_num)");
         while($db->next_record())
         {
-//从产品库中取出产品所对应的名称和价格
             $db2->query("select name,price from $goods_t where id=".$db->f('goods_id'));
             $db2->next_record();
 
@@ -97,26 +92,15 @@ if ($do=="update")
                 else
                     $tmp.=" and name like '%$key%' ";
 
-            $db->query("select null from $requests_t $tmp"); //从订单表中查出用户的订单
-            $total_num=$db->num_rows();//得到总记录数
-            $totalpage=ceil($total_num/$num_to_show);//得到总页数
+            $db->query("select null from $requests_t $tmp"); 
+            $total_num=$db->num_rows();//get all record
+            $totalpage=ceil($total_num/$num_to_show);//get all pages
             $init_record=($page-1)*$num_to_show;
             $db->query("select * from $requests_t $tmp
      order by id DESC limit $init_record, $num_to_show");
             ?>
 
-            <!-- orders
-            <table width="99%" border="0" cellspacing="0" align="center" >
-                <tr>
-                    <td width="69%"> <b>orders：</b>
-                    </td>
-                    <td width="31%" align="right"><a href="admin_dingdang.php"><font color="blue">待处理的订单</font></a>
-                        <a href="fail_admin_dingdang.php?action=all" onClick="return confirm('确定要delete所有的无效订单吗?')"><font color="blue"></font></a><a href="admin_succeed_dingdang.php"><font color="blue">成功的订单</font></a>
-                        <a href="admin_fail_dingdang.php"><font color="blue">无效的订单</font></a></td>
-                </tr>
-
-            </table>
-            -->
+          
             <table width="96%" border="0" cellspacing="1" cellpadding="1">
                 <form action="<?php echo $PHP_SELF."?key=$key" ?> " method="post" name="form8" onSubmit="return check_page('form8.page')">
                     <tr>

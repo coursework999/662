@@ -66,8 +66,8 @@ if (session_is_registered("admin_name") && isset($admin_name)) {
                 $tmp = "where reg_date between '$date1' and '$date2'";
             if (!$page) $page = 1;
             $db->query("select null from $user_t $tmp");
-            $total_num = $db->num_rows();//得到总记录数
-            $totalpage = ceil($total_num / $num_to_show);//得到总页数
+            $total_num = $db->num_rows();
+            $totalpage = ceil($total_num / $num_to_show);
             $init_record = ($page - 1) * $num_to_show;
             $db->query("select *
    from $user_t $tmp

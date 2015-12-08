@@ -4,10 +4,10 @@ include "chk.php";
 if ($action=="del")
 {
   $id=$id-$init_num;
-  //删除用户订单表的订单
+  
   $db->query("delete from $requests_t 
       where id=$id and user_id=$login_id and UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(date_created)<$del_delay");
-  //删除用户shopping表的商品id
+  
   $db->query("delete from $shopping_t 
       where requests_id=$id and user_id=$login_id and UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(date_created)<$del_delay");
 }
@@ -36,9 +36,9 @@ if ($db->f('sex')==1)
    $title;
 
   if (!$page) $page=1;
-  $db->query("select null from $requests_t where user_id=$login_id"); //从订单表中查出用户的订单
-  $total_num=$db->num_rows();//得到总记录数
-  $totalpage=ceil($total_num/$num_to_show);//得到总页数
+  $db->query("select null from $requests_t where user_id=$login_id"); 
+  $total_num=$db->num_rows();
+  $totalpage=ceil($total_num/$num_to_show);
   $init_record=($page-1)*$num_to_show;
   $db->query("select *,UNIX_TIMESTAMP(NOW())-UNIX_TIMESTAMP(date_created) as mytime from $requests_t where user_id=$login_id
      order by id DESC limit $init_record, $num_to_show");        

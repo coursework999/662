@@ -104,34 +104,26 @@ if ($basket_items == 0) {
                         $flag = 0;
                     }
 
-//如果购买同一商品超过指定的个数，则优惠用户所设的优惠值$jiti_rebate
                 if ($price_all >= 1000 and $flag) $price_all = $price_all * (1 - $rebate);
-//单张定单总额超过1000元的折扣
 
-//把用户的订单的送货信息添加到requests表中
                 $a = split(',', $province);
                 $province = $a[1];
-                //print "insert into $requests_t values(null,$login_id,'$name',$sex,'$email','$province','$city','$tel','$address','$post','$attrib',$price_all,0,0,0,'$date_tmp')";
                 $db2->query("insert into $requests_t
            values(null,$login_id,'$name',$sex,'$email','$province','$city','$tel',
                '$address','$post','$attrib',$price_all,0,0,0,'$date_tmp')");
                 $key_requests = $db2->insert_id();
-                //print "<p>$key_requests";
-//得到此次的订单号
 
                 $db->query("select id from $shopping_t where user_id=$login_id and requests_id=0");
                 while ($db->next_record()) {
                     $id_shopping = $db->f('id');
                     $db2->query("update $shopping_t set requests_id=$key_requests where id=$id_shopping");
                 }
-//用生成的订单号，更新shopping表中的每条记录
 
                 $basket_items = 0;
-                array_splice($basket_amount, 0);  //删除购物车的数组的所有元素
+                array_splice($basket_amount, 0);  
                 array_splice($basket_id, 0);
                 unset($basket_amount);
                 unset($basket_id);
-//当生成订单后，把购物车的内容清空
                 ?>
                 <tr>
                     <td colspan="5" width="100%" height="1" background="images/speaking_bg.gif"></td>

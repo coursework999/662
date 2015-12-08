@@ -18,7 +18,7 @@ switch ($op) {
         break;
     case "clear":
         $basket_items = 0;
-        array_splice($basket_amount, 0); //删除购物车的数组的所有元素
+        array_splice($basket_amount, 0); 
         array_splice($basket_id, 0);
         unset($basket_amount);
         unset($basket_id);
@@ -33,15 +33,15 @@ switch ($op) {
 switch ($op2) {
     case "add":
 
-        $f = 1; //确定该商品的id是否存在收藏夹中
+        $f = 1; 
         $scsp = split("&&", $scj);
         for ($j = 0; $j < count($scsp); $j++)
             if ($scsp[$j] == $prod) $f = 0;
-        if ($f) //表示商品的id不存在收藏夹中，则添加到收藏夹中
+        if ($f) 
             if ($scj)
-                setcookie("scj", $scj . "&&" . $prod, time() + 60 * 60 * 24 * 365); //设置cookie的有效时间为一年
+                setcookie("scj", $scj . "&&" . $prod, time() + 60 * 60 * 24 * 365); 
             else
-                setcookie("scj", $prod, time() + 60 * 60 * 24 * 365); //设置cookie的有效时间为一年
+                setcookie("scj", $prod, time() + 60 * 60 * 24 * 365); 
         break;
     case "del":
 
@@ -53,7 +53,7 @@ switch ($op2) {
             $tmp = @implode("&&", $new_scsp);
         else
             $tmp = "";
-        setcookie("scj", $tmp, time() + 60 * 60 * 24 * 365); //设置cookie的有效时间为一年
+        setcookie("scj", $tmp, time() + 60 * 60 * 24 * 365); 
         break;
 }
 if ($op2) echo '<script language="javascript"> location.href="my_buystore.php";</script>';

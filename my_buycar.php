@@ -9,7 +9,7 @@ session_start();
 
 switch ($op) {
     case "add":
-//把商品的id加入购物车
+//add to cart
         if ($id != "") {
             if (isset($_SESSION["basket_items"]))
                 require("addto_basket.inc");
@@ -22,7 +22,7 @@ switch ($op) {
         break;
     case "clear":
         $basket_items = 0;
-        array_splice($basket_amount, 0); //删除购物车的数组的所有元素
+        array_splice($basket_amount, 0); //delete all from cart
         array_splice($basket_id, 0);
         unset($basket_amount);
         unset($basket_id);
@@ -37,15 +37,15 @@ switch ($op) {
 switch ($op2) {
     case "add":
 
-        $f = 1; //确定该商品的id是否存在收藏夹中
+        $f = 1; 
         $scsp = split("&&", $scj);
         for ($j = 0; $j < count($scsp); $j++)
             if ($scsp[$j] == $prod) $f = 0;
-        if ($f) //表示商品的id不存在收藏夹中，则添加到收藏夹中
+        if ($f) //not in favorite
             if ($scj)
-                setcookie("scj", $scj . "&&" . $prod, time() + 60 * 60 * 24 * 365); //设置cookie的有效时间为一年
+                setcookie("scj", $scj . "&&" . $prod, time() + 60 * 60 * 24 * 365); //cook time
             else
-                setcookie("scj", $prod, time() + 60 * 60 * 24 * 365); //设置cookie的有效时间为一年
+                setcookie("scj", $prod, time() + 60 * 60 * 24 * 365); 
         break;
     case "del":
 
@@ -57,7 +57,7 @@ switch ($op2) {
             $tmp = @implode("&&", $new_scsp);
         else
             $tmp = "";
-        setcookie("scj", $tmp, time() + 60 * 60 * 24 * 365); //设置cookie的有效时间为一年
+        setcookie("scj", $tmp, time() + 60 * 60 * 24 * 365); 
         break;
 }
 //if ($op2) header("Location: my_buycar.php");

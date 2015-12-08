@@ -165,7 +165,7 @@ function check() {
         window.alert("Two passwords do not match!");
         return false;
     }
-    if (document.formlogin.email.value == "" || document.formlogin.email.value.length < 1)            //判断信箱是否为空
+    if (document.formlogin.email.value == "" || document.formlogin.email.value.length < 1)            
     {
         alert("Please input email!");
         document.formlogin.email.select();
@@ -173,7 +173,7 @@ function check() {
         return (false);
     }
 
-    var checkOKeemail = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_@.";           //判断信箱中是否有非法字符
+    var checkOKeemail = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_@.";           
     var checkStreemail = document.formlogin.email.value;
     var allValideemail = true;
     for (i = 0; i < checkStreemail.length; i++) {
@@ -187,12 +187,12 @@ function check() {
         }
     }
 
-    if (document.formlogin.email.value.length < 6 || document.formlogin.email.value.length > 60) //判断信箱长度是否合法
+    if (document.formlogin.email.value.length < 6 || document.formlogin.email.value.length > 60) 
     {
         allValideemail = false;
     }
 
-    if (!allValideemail)                                                   //判断信箱中是否有非法字符
+    if (!allValideemail)                                                   
     {
         alert("Your input \"Email Address\" is invalid, Please pay attention to the length and illegal characters!");
         document.formlogin.email.select();
