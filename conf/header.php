@@ -79,38 +79,4 @@ if(document.formsearch.key.value=="")
     </td>
   </tr>
 </table>
-<script language="Javascript">
-<!--
-function show() {
-  if(!document.layers && !document.all) return;
-  var d = new Date();
-  var iYear = d.getYear()
-  var iMonth = d.getMonth()
-  var iDay = d.getDate()
-  var sWeek = d.getDay()
-  var sHour  = d.getHours()
-  var sMinute = d.getMinutes()
-  var sSecond = d.getSeconds()
-  if(sWeek == 0) sWeek = "<font color=red>星期天</font>";
-  if(sWeek == 1) sWeek = "星期一";
-  if(sWeek == 2) sWeek = "星期二";
-  if(sWeek == 3) sWeek = "星期三";
-  if(sWeek == 4) sWeek = "星期四";
-  if(sWeek == 5) sWeek = "星期五";
-  if(sWeek == 6) sWeek = "<font color=red>星期六</font>";
-  if(sHour <= 9) sHour = "0" + sHour;
-  if(sMinute <= 9) sMinute = "0" + sMinute;
-  if(sSecond <= 9) sSecond = "0" + sSecond;
-  sClock = "&nbsp;&nbsp;" + (iMonth + 1) + "/" + iDay + "/ "  + iYear + ""
-            + " " + sHour + ":" + sMinute + ":" + sSecond;
-  if(document.layers) {
-    document.layers.clock.document.write(sClock);
-    document.layers.clock.document.close();
-  }
-  else if(document.all)
-    clock.innerHTML = sClock;
-  setTimeout("show()", 1000);
-}
-show();
-//-->
-</script>
+

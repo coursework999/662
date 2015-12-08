@@ -2,12 +2,10 @@
 require "conf/options.php";
 require "conf/db_mysql.php";
 
-//关闭错误提示
 //error_reporting(0);
-session_start(); //启动session变量
+session_start(); 
 $register_globals = @get_cfg_var("register_globals");
 if ($register_globals != 1) {
-    //This is For PHP 5 at 2005-4-20
     @extract($_SERVER, EXTR_SKIP);
     @extract($_COOKIE, EXTR_SKIP);
     @extract($_SESSION, EXTR_SKIP);
@@ -39,12 +37,9 @@ $db2->User = $dbusername;
 $db2->Password = $dbuserpass;
 
 
-//测试数据库连接
 $db->Link_ID = @mysql_connect($db->Host, $db->User, $db->Password) or die("Database connection failed1");
 @mysql_select_db($db->Database, $db->Link_ID) or die("Database does not exist!");
 
-//------------自定义函数部分--------------
-//------------把图片进行比例缩小------------
 function show_img($img, $width, $height)
 {
     $size = @GetImageSize($img);
@@ -58,7 +53,6 @@ function show_img($img, $width, $height)
     return $ss;
 }
 
-//------------从字符串中取出$len长度的字符，解决全角、半角的问题
 function substr_2($str, $len)
 {
     if (strlen($str) > $len) {
@@ -74,10 +68,7 @@ function substr_2($str, $len)
     return $str;
 }
 
-/*
-$msg值为内容，$title值为标题,$key值为搜索的关键字,$link文章的链接地址
-$flag如果为0，表示按标题、内容搜索，为1，表示按标题搜索，为2，表示按文章内容来搜索
-*/
+
 function match_show($msg, $title, $key, $link)
 {
     $key = chop($key);

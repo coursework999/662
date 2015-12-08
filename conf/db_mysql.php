@@ -1,5 +1,5 @@
 <?php
-/* mysqlµÄ²Ù×÷Àà
+/* 
  * Session Management for PHP3
  *
  * Copyright (c) 1998,1999 SH Online Dienst GmbH
