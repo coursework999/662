@@ -150,7 +150,7 @@ class DB_Sql {
 
       /* half assed attempt to save the day, 
        * but do not consider this documented or even
-       * desireable behaviour.
+       * desirable behaviour.
        */
       @mysql_data_seek($this->Query_ID, $this->num_rows());
       $this->Row = $this->num_rows;

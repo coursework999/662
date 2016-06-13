@@ -23,7 +23,7 @@ $dbname=$dbname;
 // technical email address - any error messages will be emailed here
 $technicalemail='zhugexubin@163.com';
 
-// use persistant connections to the database
+// use persistent connections to the database
 // 0 = don't use
 // 1 = use
 $usepconnect=0;
